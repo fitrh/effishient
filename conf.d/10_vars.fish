@@ -1,0 +1,47 @@
+set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_CACHE_HOME $HOME/.cache
+set -gx XDG_STATE_HOME $HOME/.local/state
+
+set -gx LOCAL_BIN $HOME/.local/bin
+set -gx LOCAL_LIB $HOME/.local/lib
+set -gx LOCAL_SCRIPT $HOME/.local/scripts
+set -gx LOCAL_SRC $HOME/.local/src
+
+set -gx _JAVA_AWT_WM_NONREPARENTING 1
+set -gx ANDROID_HOME $LOCAL_LIB/sdk/android
+set -gx ANDROID_NDK_HOME $LOCAL_LIB/sdk/android/ndk/21.0.6113669
+set -gx ANDROID_SDK_ROOT $LOCAL_LIB/sdk/android
+set -gx AWT_TOOLKIT MToolkit
+set -gx BAT_THEME ansi
+set -gx CABAL_DIR $LOCAL_LIB/haskell/cabal
+set -gx CARGO_HOME $LOCAL_LIB/rust/cargo
+set -gx COMPOSER_BIN_DIR $LOCAL_LIB/php/composer/bin
+set -gx DESKTOP_BG "Earth & The Satellite.png"
+set -gx DOTNET_ROOT $LOCAL_LIB/dotnet
+set -gx EDITOR $HOME/apps/neovim/bin/nvim
+set -gx FLUTTER_ROOT $LOCAL_LIB/sdk/flutter
+set -gx FZF_DEFAULT_OPTS --reverse
+set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--preview 'bat -p --color=always {}'"
+set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--preview-window=right,65%,cycle"
+set -gx GHCUP_USE_XDG_DIRS true
+set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
+set -gx GOPATH $LOCAL_LIB/go
+set -gx GPG_TTY (tty)
+set -gx JAVA_HOME $LOCAL_LIB/jvm/default
+set -gx JDK_JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=gasp'
+set JDK_JAVA_OPTIONS $JDK_JAVA_OPTIONS '-Dswing.aatext=true'
+set JDK_JAVA_OPTIONS $JDK_JAVA_OPTIONS '-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+set -gx LC_ALL en_US.UTF-8
+set -gx npm_config_prefix $LOCAL_LIB/node_modules
+set -gx PUB_CACHE $LOCAL_LIB/dart/pub-cache
+set -gx STACK_ROOT $LOCAL_LIB/haskell/stack
+set -gx TERMINFO $XDG_DATA_HOME/terminfo
+set -gx RUSTUP_HOME $LOCAL_LIB/rust/rustup
+set -gx RUST_BACKTRACE 1
+set -gx VIMPKG $XDG_DATA_HOME/nvim/site/pack
+set -gx VISUAL $HOME/apps/neovim/bin/nvim
+set -gx XCURSOR_THEME capitaine-cursors
+set -gx XMONAD_DATA_DIR $XDG_DATA_HOME/xmonad
+set -gx XMONAD_CONFIG_DIR $XDG_CONFIG_HOME/xmonad
+set -gx XMONAD_CACHE_DIR $XDG_CACHE_HOME/xmonad
