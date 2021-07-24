@@ -80,8 +80,12 @@ function g --wraps git
             git status $argv[2..-1]
         case stacl
             git stash clear $argv[2..-1]
+        case stad
+            gits stash drop $argv[2..]
         case stap
             git stash apply $argv[2..-1]
+        case stapop
+            gits stash pop $argv[2..]
         case stas
             git stash $argv[2..-1]
         case stasl
