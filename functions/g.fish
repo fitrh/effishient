@@ -60,6 +60,8 @@ function g --wraps git
             git pull --ff-only --progress $argv[2..]
         case ps
             git push $argv[2..-1]
+        case psf
+            git push --force-with-lease $argv[2..]
         case ra
             git remote add $argv[2..]
         case rb
