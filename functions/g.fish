@@ -70,6 +70,10 @@ function g --wraps git
             git rebase -i $argv[2..-1]
         case re
             git restore $argv[2..-1]
+        case res
+            git reset --soft $argv[2..]
+        case red
+            git reset --hard $argv[2..]
         case rr
             git remote rename $argv[2..-1]
         case rm
