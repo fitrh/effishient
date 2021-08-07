@@ -30,5 +30,5 @@ function fish_prompt --description 'Write out the prompt'
         (set_color $fish_color_user) "$USER" $normal @ \
         (set_color $color_host) (prompt_hostname) $normal ' ' \
         (set_color $color_cwd) (basename (prompt_pwd)) $normal \
-        (fish_vcs_prompt) $normal $prompt_status "\n"  $suffix " "
+        (fish_vcs_prompt) $normal $prompt_status "\n" $suffix " "
 end
