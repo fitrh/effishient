@@ -4,6 +4,6 @@ if status is-login
         set -l LOG_DIR $XDG_CACHE_HOME/xorg
         set -l LOG_FILE startx_(date +'%Y%m%d_%H%M%S').log
         set -l LOG $LOG_DIR/$LOG_FILE
-        exec startx -- -keeptty &> $LOG
+        exec startx -- -keeptty &>$LOG
     end
 end
