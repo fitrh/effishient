@@ -152,8 +152,8 @@ function __g_update_dir
                         printf "%s: Problematic git directory.\n" \
                             "$dir" >>$git_log
                     end
-                    printf "$RED$BOLD%s : Problematic git directory.$NORM\n\n"\
-                    $dir
+                    printf "$RED$BOLD%s : Problematic git directory.$NORM\n\n" \
+                        $dir
                 end
             end
             cd ..
