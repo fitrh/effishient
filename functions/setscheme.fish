@@ -1,5 +1,8 @@
 function __setscheme_list_scheme
     for color in $XDG_CONFIG_HOME/fish/colors/*.fish
+        if test (basename $color) = "template.fish"
+            continue
+        end
         set color (string trim -rc ".fish" (basename $color))
         printf "    \e[1m - \e[94m%s\e[0m\n" $color
     end
