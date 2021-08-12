@@ -29,9 +29,11 @@ set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx GOPATH $LOCAL_LIB/go
 set -gx GPG_TTY (tty)
 set -gx JAVA_HOME $LOCAL_LIB/jvm/default
+set -gx JAVA_WORKSPACE $HOME/dev/sandbox/java/workspace
 set -gx JDK_JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=gasp'
 set JDK_JAVA_OPTIONS $JDK_JAVA_OPTIONS '-Dswing.aatext=true'
 set JDK_JAVA_OPTIONS $JDK_JAVA_OPTIONS '-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+set -gx JDTLS_HOME $HOME/git/eclipse.jdt.ls
 set -gx LC_ALL en_US.UTF-8
 set -gx npm_config_prefix $LOCAL_LIB/node_modules
 set -gx PUB_CACHE $LOCAL_LIB/dart/pub-cache
