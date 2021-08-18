@@ -7,7 +7,9 @@ function __disk_usage
     printf "\t\e[34mum\e[0m, \e[34munmount\e[0m\t: "
     printf "unmount a device\n"
     printf "\nAvailable Device to mount :\n"
-    lsblk -no NAME
+    printf "\n%s\n\n" ---------------------------------------
+    lsblk -o NAME,SIZE,FSAVAIL,FSUSE%,MOUNTPOINT
+    printf "\n%s\n\n" ---------------------------------------
 end
 
 function disk --wraps udisksctl
