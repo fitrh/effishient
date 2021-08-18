@@ -3,6 +3,7 @@ function conf
 
     if test -z "$argv"
         cd $XDG_CONFIG_HOME; or cd $HOME/.config
+        clear
         exa --only-dirs --icons
         set --erase _CWD
         return
