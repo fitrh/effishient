@@ -38,8 +38,8 @@ function g --wraps git
             end
         case cma
             git commit --amend $argv[2..]
-        case co
-            git config $argv[2..-1]
+        case conf
+            git config $argv[2..]
         case d
             git diff $argv[2..-1]
         case f
