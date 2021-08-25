@@ -100,6 +100,8 @@ function g --wraps git
             git stash show $argv[2..-1]
         case stasv
             git statsh save $argv[2..-1]
+        case sub
+            git submodule $argv[2..]
         case up
             __g_update_dir $argv[2..-1]
         case url
