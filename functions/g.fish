@@ -78,6 +78,10 @@ function g --wraps git
             git remote rename $argv[2..-1]
         case rm
             git rm $argv[2..-1]
+        case rmc
+            git rm --cached $argv[2..]
+        case rmd
+            git rm -r $argv[2..]
         case rs
             git remote set-url $argv[2..]
         case rv
