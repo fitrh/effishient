@@ -17,6 +17,7 @@ set -gx BAT_THEME ansi
 set -gx CABAL_DIR $LOCAL_LIB/haskell/cabal
 set -gx CARGO_HOME $LOCAL_LIB/rust/cargo
 set -gx COMPOSER_BIN_DIR $LOCAL_LIB/php/composer/bin
+set -gx DART_SDK $LOCAL_LIB/sdk/dart-sdk
 set -gx DESKTOP_BG "Earth & The Satellite.png"
 set -gx DOTNET_ROOT $LOCAL_LIB/dotnet
 set -gx EDITOR $HOME/apps/neovim/bin/nvim
