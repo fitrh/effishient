@@ -1,4 +1,4 @@
-function dotfile
+function dotfile --wraps git
     switch $argv[1]
         case a
             __dotfile_cmd add $argv[2..]
