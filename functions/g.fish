@@ -106,6 +106,10 @@ function g --wraps git
             git statsh save $argv[2..-1]
         case sub
             git submodule $argv[2..]
+        case sum
+            if not onefetch
+                return
+            end
         case up
             __g_update_dir $argv[2..-1]
         case url
