@@ -16,6 +16,7 @@ set -gx AWT_TOOLKIT MToolkit
 set -gx BAT_THEME ansi
 set -gx CABAL_DIR $LOCAL_LIB/haskell/cabal
 set -gx CARGO_HOME $LOCAL_LIB/rust/cargo
+set -gx CHROME_EXECUTABLE (which chromium)
 set -gx COMPOSER_BIN_DIR $LOCAL_LIB/php/composer/bin
 set -gx DART_SDK $LOCAL_LIB/dart/sdk
 set -gx DESKTOP_BG "Earth & The Satellite.png"
