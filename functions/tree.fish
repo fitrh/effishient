@@ -1,4 +1,4 @@
-function tree --wraps=exa
+function tre --wraps=exa
     exa --icons --color-scale \
         --tree \
         --group-directories-first \
