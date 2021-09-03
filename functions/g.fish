@@ -57,7 +57,7 @@ function g --wraps git
         case m
             git merge $argv[2..-1]
         case pl
-            git pull --ff-only --progress $argv[2..]
+            __g_pull $argv[2..]
         case ps
             git push $argv[2..-1]
         case psf
@@ -135,6 +135,16 @@ function __g_init
     end
     printf "\e[1;32mSUCCESS\e[0m: Create \e[1m.gitignore\e[0m\n\n"
     printf "Let's \e[1;32madd\e[0m, \e[1;34mcommit\e[0m, and \e[1mpush\e[0m\n\n"
+end
+
+function __g_pull
+    if test -z "$argv"
+        if not git pull --ff-only --progress $argv
+            return 1
+        end
+        return 0
+    end
+    git pull --progress $argv
 end
 
 function __g_update_dir
