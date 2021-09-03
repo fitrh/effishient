@@ -108,7 +108,7 @@ function g --wraps git
             git submodule $argv[2..]
         case sum
             if command -sq onefetch
-                return 1
+                onefetch
             end
         case up
             __g_update_dir $argv[2..-1]
