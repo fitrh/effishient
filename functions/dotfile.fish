@@ -27,5 +27,5 @@ function __dotfile_commit
         end
         return 0
     end
-    _dotfile_cmd commit -S -m $argv
+    __dotfile_cmd commit -S -m $argv
 end
