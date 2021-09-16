@@ -20,6 +20,7 @@ set -gx CHROME_EXECUTABLE (which chromium)
 set -gx COMPOSER_BIN_DIR $LOCAL_LIB/php/composer/bin
 set -gx DART_SDK $LOCAL_LIB/dart/sdk
 set -gx DESKTOP_BG "Earth & The Satellite.png"
+set -gx DENO_INSTALL $LOCAL_LIB/deno/bin
 set -gx DENO_INSTALL_ROOT $LOCAL_LIB/deno/bin
 set -gx DOTNET_ROOT $LOCAL_LIB/dotnet
 set -gx EDITOR $HOME/apps/neovim/bin/nvim
