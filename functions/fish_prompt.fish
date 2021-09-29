@@ -29,6 +29,7 @@ function fish_prompt --description 'Write out the prompt'
     echo -n -s -e \
         (set_color $fish_color_user) "$USER" $normal @ \
         (set_color $color_host) (prompt_hostname) $normal ' in ' \
-        (set_color $color_cwd) (basename (prompt_pwd)) $normal \
-        (fish_vcs_prompt) $normal $prompt_status "\n" $suffix " "
+        (set_color $color_cwd) " " (basename (prompt_pwd)) $normal \
+        (set_color --bold brmagenta) " " (fish_vcs_prompt) $normal \
+        $prompt_status "\n" $suffix " "
 end
