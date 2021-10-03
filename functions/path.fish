@@ -72,7 +72,6 @@ function __path_add_to --argument-names index path
     for var in $TEMP_PATH
         if ! set -Ua fish_user_paths $var
             printf "Failed to add \e[1;32m%s\e[0m to PATH\n" $var
-            return 1
         end
     end
 end
