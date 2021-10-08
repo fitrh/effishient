@@ -56,6 +56,8 @@ function g --wraps git
             git log -p $argv[2..]
         case m
             git merge $argv[2..-1]
+        case patch
+            git add --patch $argv[2..]
         case pl
             __g_pull $argv[2..]
         case ps
