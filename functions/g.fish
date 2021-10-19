@@ -53,9 +53,9 @@ function g --wraps git
         case is
             git rev-parse --is-inside-work-tree $argv[2..]
         case l
-            git log $argv[2..-1]
+            git log --stat $argv[2..-1]
         case ll
-            git log -p $argv[2..]
+            git log --stat -p $argv[2..]
         case m
             git merge $argv[2..-1]
         case patch
