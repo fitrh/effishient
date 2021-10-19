@@ -28,6 +28,8 @@ function g --wraps git
             git branch --delete $argv[2..-1]
         case c
             git clone $argv[2..-1]
+        case cd
+            git clone --depth $argv[2..]
         case ch
             git checkout $argv[2..-1]
         case cm
