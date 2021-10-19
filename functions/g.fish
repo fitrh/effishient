@@ -160,7 +160,6 @@ function __g_update_dir
     set -l cwd $PWD
     set -l git_dir $HOME/git
     set -l git_log $git_dir/(date -I)-git-status.log
-    set -l up_to_date "Already up to date."
 
     if test (count $argv) -gt 0
         if contains this $argv
@@ -176,24 +175,27 @@ function __g_update_dir
             cd $dir
             if test (git rev-parse --is-inside-work-tree)
                 set -l dir (basename $dir)
-                set -l is_up_to_date (git pull --ff-only)
-                if test $status -ne 1
-                    if test "$is_up_to_date[1]" != $up_to_date
-                        printf "\n$GREEN$BOLD%s : Updated.$NORM\n\n" $dir
-                        if not contains -- no-log $argv
-                            printf "%s updated at %s\n" \
-                                $dir (date +'%H:%M:%S%s%Z') >>$git_log
-                        end
-                    else
-                        printf "$BLUE$BOLD%s : Already up to date.$NORM\n" $dir
-                    end
-                else
+                set -l rev (git rev-parse --short HEAD)
+
+                if not git pull --ff-only --rebase=false --quiet
                     if not contains -- no-log $argv
                         printf "%s: Problematic git directory.\n" \
                             "$dir" >>$git_log
                     end
-                    printf "$RED$BOLD%s : Problematic git directory.$NORM\n\n" \
-                        $dir
+                    printf "$RED$BOLD%s : Problematic git directory." $dir
+                    printf "$NORM\n\n"
+                end
+
+                set -l new_rev (git rev-parse --short HEAD)
+
+                if test $rev != $new_rev
+                    printf "\n$GREEN$BOLD%s : Updated.$NORM\n\n" $dir
+                    if not contains -- no-log $argv
+                        printf "%s updated at %s\n" \
+                            $dir (date +'%H:%M:%S%s%Z') >>$git_log
+                    end
+                else
+                    printf "$BLUE$BOLD%s : Already up to date.$NORM\n" $dir
                 end
             end
             cd ..
