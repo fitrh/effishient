@@ -183,13 +183,13 @@ function __g_update_dir
                             "$dir" >>$git_log
                     end
                     printf "$RED$BOLD%s : Problematic git directory." $dir
-                    printf "$NORM\n\n"
+                    printf "$NORM\n"
                 end
 
                 set -l new_rev (git rev-parse --short HEAD)
 
                 if test $rev != $new_rev
-                    printf "\n$GREEN$BOLD%s : Updated.$NORM\n\n" $dir
+                    printf "$GREEN$BOLD%s : Updated.$NORM\n" $dir
                     if not contains -- no-log $argv
                         printf "%s updated at %s\n" \
                             $dir (date +'%H:%M:%S%s%Z') >>$git_log
