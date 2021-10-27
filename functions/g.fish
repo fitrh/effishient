@@ -56,6 +56,8 @@ function g --wraps git
             git log --stat $argv[2..-1]
         case ll
             git log --stat -p $argv[2..]
+        case lo
+            git log --oneline $argv[2..]
         case m
             git merge $argv[2..-1]
         case patch
