@@ -56,7 +56,7 @@ function __mirr_parse_args
 end
 
 function __mirr_generate
-    if test (count $argv) -eq 0
+    if test -z "$argv"
         sudo reflector -l $__INSTANCE -f $__INSTANCE \
             --protocol https,http \
             --sort rate --verbose --save $__MIRRORS
@@ -70,7 +70,7 @@ function __mirr_generate
 end
 
 function __mirr_list
-    if test (count $argv) -eq 0
+    if test -z "$argv"
         reflector -l $__INSTANCE -f $__INSTANCE \
             --protocol http,https \
             --sort rate --verbose
