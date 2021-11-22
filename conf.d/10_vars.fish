@@ -8,11 +8,9 @@ set -gx LOCAL_LIB $HOME/.local/lib
 set -gx LOCAL_SCRIPT $HOME/.local/scripts
 set -gx LOCAL_SRC $HOME/.local/src
 
-set -gx _JAVA_AWT_WM_NONREPARENTING 1
 set -gx ANDROID_HOME $LOCAL_LIB/sdk/android
 set -gx ANDROID_NDK_HOME $LOCAL_LIB/sdk/android/ndk/21.0.6113669
 set -gx ANDROID_SDK_ROOT $LOCAL_LIB/sdk/android
-set -gx AWT_TOOLKIT MToolkit
 set -gx BAT_THEME ansi
 set -gx CABAL_DIR $LOCAL_LIB/haskell/cabal
 set -gx CARGO_HOME $LOCAL_LIB/rust/cargo
@@ -32,12 +30,6 @@ set -gx GHCUP_USE_XDG_DIRS true
 set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 set -gx GOPATH $LOCAL_LIB/go
 set -gx GPG_TTY (tty)
-set -gx JAVA_HOME $LOCAL_LIB/jvm/default
-set -gx JAVA_WORKSPACE $HOME/dev/sandbox/java/workspace
-set -gx JDK_JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=gasp'
-set JDK_JAVA_OPTIONS $JDK_JAVA_OPTIONS '-Dswing.aatext=true'
-set JDK_JAVA_OPTIONS $JDK_JAVA_OPTIONS '-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-set -gx JDTLS_HOME $HOME/git/eclipse.jdt.ls
 set -gx LC_ALL en_US.UTF-8
 set -gx npm_config_prefix $LOCAL_LIB/node_modules
 set -gx PUB_CACHE $LOCAL_LIB/dart/pub-cache
