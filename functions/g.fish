@@ -26,6 +26,8 @@ function g --wraps git
             git checkout $argv[2..-1]
         case brd
             git branch --delete $argv[2..-1]
+        case brv
+            git branch -vv $argv[2..]
         case c
             git clone $argv[2..-1]
         case cd
@@ -58,6 +60,8 @@ function g --wraps git
             git log --stat -p $argv[2..]
         case lo
             git log --oneline $argv[2..]
+        case ls
+            git log -S $argv[2..]
         case m
             git merge $argv[2..-1]
         case patch
