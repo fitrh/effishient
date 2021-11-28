@@ -46,6 +46,8 @@ function g --wraps git
             git config $argv[2..]
         case d
             git diff $argv[2..-1]
+        case dc
+            git diff --cached $argv[2..]
         case f
             git fetch $argv[2..-1]
         case hash
