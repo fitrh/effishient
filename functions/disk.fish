@@ -24,6 +24,12 @@ function disk --wraps udisksctl
             udisksctl mount -b $argv[2..]
         case um unmount
             udisksctl unmount -b $argv[2..]
+        case u usage
+            set depth 1
+            if test -n "$argv[2]"
+                set depth $argv[2]
+            end
+            du --all --human-readable --max-depth=$depth $argv[3..]
         case "*"
             __disk_usage
     end
