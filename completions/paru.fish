@@ -165,6 +165,7 @@ complete -c $progname -n "$paruspecific" -l gendb -d 'Generate development packa
 
 # Show options
 complete -c $progname -n "$show" -s w -l news -d 'Print arch news' -f
+complete -c $progname -n "$show" -s s -l stats -d 'Display system package statistics' -f
 
 # Getpkgbuild options
 complete -c $progname -n "$getpkgbuild" -s p -l print -d 'Print PKGBUILD instead of downloading' -f
@@ -195,6 +196,7 @@ complete -c $progname -n "not $noopt" -l fm -d 'File manager to use' -f
 complete -c $progname -n "not $noopt" -l completioninterval -d 'Refresh interval for completion cache' -f
 complete -c $progname -n "not $noopt" -l sortby -d 'Sort AUR results by a specific field during search' -xa "{votes,popularity,id,baseid,name,base,submitted,modified}"
 complete -c $progname -n "not $noopt" -l searchby -d 'Search for AUR packages by querying the specified field' -xa "{name,name-desc,maintainer,depends,checkdepends,makedepends,optdepends}"
+complete -c $progname -n "not $noopt" -l limit -d 'Limit number of search results' -x
 complete -c $progname -n "not $noopt" -l upgrademenu -d 'Show a detailed list of updates with the option to skip any' -f
 complete -c $progname -n "not $noopt" -l noupgrademenu -d 'Do not show the upgrade menu' -f
 complete -c $progname -n "not $noopt" -l removemake -d 'Remove make deps after install' -f
@@ -215,6 +217,8 @@ complete -c $progname -n "not $noopt" -l nopgpfetch -d 'Do not prompt to import 
 complete -c $progname -n "not $noopt" -l newsonupgrade -d 'Print new news during sysupgrade' -f
 complete -c $progname -n "not $noopt" -l useask -d 'Automatically resolve conflicts using pacmans ask flag' -f
 complete -c $progname -n "not $noopt" -l nouseask -d 'Confirm conflicts manually during the install' -f
+complete -c $progname -n "not $noopt" -l savechanges -d 'Commit changes to pkgbuilds made during review' -f
+complete -c $progname -n "not $noopt" -l nosavechanges -d "Don't commit changes to pkgbuilds made during review" -f
 complete -c $progname -n "not $noopt" -l combinedupgrade -d 'Refresh then perform the repo and AUR upgrade together' -f
 complete -c $progname -n "not $noopt" -l nocombinedupgrade -d 'Perform the repo upgrade and AUR upgrade separately' -f
 complete -c $progname -n "not $noopt" -l batchinstall -d 'Build multiple AUR packages then install them together' -f
@@ -231,6 +235,10 @@ complete -c $progname -n "not $noopt" -l sudoloop -d 'Loop sudo calls in the bac
 complete -c $progname -n "not $noopt" -l nosudoloop -d 'Do not loop sudo calls in the background' -f
 complete -c $progname -n "not $noopt" -l chroot -d 'Build packages in a chroot' -f
 complete -c $progname -n "not $noopt" -l nochroot -d "Don't build packages in a chroot" -f
+complete -c $progname -n "not $noopt" -l sign -d 'Sign packages with gpg' -f
+complete -c $progname -n "not $noopt" -l nosign -d "Don't sign packages with gpg" -f
+complete -c $progname -n "not $noopt" -l signdb -d 'Sign databases with gpg' -f
+complete -c $progname -n "not $noopt" -l nosigndb -d "Don't sign databases with gpg" -f
 complete -c $progname -n "not $noopt" -l localrepo -d 'Build packages in a local repo' -f
 complete -c $progname -n "not $noopt" -l skipreview -d 'Skip the review process' -f
 complete -c $progname -n "not $noopt" -l review -d "Don't skip the review process" -f
