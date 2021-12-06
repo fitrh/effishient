@@ -9,6 +9,8 @@ function path
             __path_add $argv[2..]
         case addto
             __path_add_to $argv[2..]
+        case update
+            __path_update $argv[2..]
         case dump
             __path_dump $argv[2..]
         case remove
@@ -76,6 +78,31 @@ function __path_add_to --argument-names index path
     end
 end
 
+function __path_update
+    if test -z "$argv"
+        printf "Please specify \e[1;91m[index] [new path]\e[0m\n"
+        return 1
+    end
+    if test $argv[1] -gt (count $fish_user_paths)
+        printf "\e[1;91m[index]\e[0m out of bounds\n"
+        return 1
+    end
+    if test -z "$argv[2]"
+        printf "Please specify \e[1;91m[new path]\e[0m\n"
+        return 1
+    end
+
+    set -l index $argv[1]
+    set -l new_path $argv[2]
+
+    if not set fish_user_paths[$index] $new_path
+        printf "Failed to update %s to %s\n" $fish_user_paths[$index] $new_path
+        return 1
+    end
+
+    path show
+end
+
 function __path_dump --argument-names log_file
     set -l LOG_FILE $HOME"/.cache/path_"(date +'%H_%M_%S_%s')".log"
 
@@ -125,18 +152,20 @@ function __path_help
     printf "Usage : \e[1;32mpath \e[1;96moperation "
     printf "\e[1;94m<option>\e[0m \e[1;93mentrie\e[0m\n\n"
     printf "Available operation :\n\n"
-    printf "\t\e[1madd\e[0m      : add \e[1;93mentrie\e[0m to "
+    printf "\t\e[1madd\e[0m\t\t: add \e[1;93mentrie\e[0m to "
     printf "\e[91m\$PATH\e[0m\n"
-    printf "\t\e[1maddto \e[1;94mi\e[0m  : add \e[1;93mentrie\e[0m to "
+    printf "\t\e[1maddto \e[1;94mi\e[0m\t\t: add \e[1;93mentrie\e[0m to "
     printf "\e[91m\$PATH\e[0m at index \e[1;94mi\e[0m\n"
-    printf "\t\e[1mdump \e[1;94mlog\e[0m : dump all entries in "
+    printf "\t\e[1mupdate \e[1;94mi \e[92mnew\e[0m\t: update \e[1;93mentrie\e[0m"
+    printf " at index \e[1;92mi\e[0m to \e[1;94mnew\e[0m\n"
+    printf "\t\e[1mdump \e[1;94mlog\e[0m\t: dump all entries in "
     printf "\e[91m\$PATH\e[0m to \e[1;94mlog\e[0m\n"
-    printf "\t\t   if \e[1;94mlog\e[0m omitted, \e[1;94mlog\e[0m default to "
+    printf "\t\t\t  if \e[1;94mlog\e[0m omitted, \e[1;94mlog\e[0m default to "
     printf "\e[91m\$XDG_CACHE_HOME\e[0m\n"
-    printf "\t\e[1mremove\e[0m   : remove \e[1;93m[entrie..]\e[0m from "
-    printf "\e[91m\$PATH\e[0m\n\t\t   \e[1;93mentrie\e[0m "
+    printf "\t\e[1mremove\e[0m\t\t: remove \e[1;93m[entrie...]\e[0m from "
+    printf "\e[91m\$PATH\e[0m\n\t\t\t  \e[1;93mentrie\e[0m "
     printf "can be a list of index or path\n"
-    printf "\t\e[1mshow\e[0m     : show all \e[91m\$PATH\e[0m entries\n"
-    printf "\t\e[1mh\e[0m, \e[1mhelp\e[0m  : show this help\n"
+    printf "\t\e[1mshow\e[0m\t\t: show all \e[91m\$PATH\e[0m entries\n"
+    printf "\t\e[1mh\e[0m, \e[1mhelp\e[0m\t\t: show this help\n"
     printf "\n"
 end
