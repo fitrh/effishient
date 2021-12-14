@@ -29,6 +29,7 @@ set -x FZF_DEFAULT_OPTS --reverse
 set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--preview 'bat -p --color=always {}'"
 set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--preview-window=right,65%,cycle"
 set -x GHCUP_USE_XDG_DIRS true
+set -x GHCUP_INSTALL_BASE_PREFIX $HOME/.local
 set -x GNUPGHOME $XDG_DATA_HOME/gnupg
 set -x GOPATH $LOCAL_LIB/go
 set -x GPG_TTY (tty)
