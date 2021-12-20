@@ -1,3 +1,4 @@
+set -x XDG_DATA_DIRS "/usr/local/share:/usr/share:/home/fitrh/.local/share"
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
