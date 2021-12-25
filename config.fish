@@ -9,10 +9,6 @@ if command -sq direnv
     direnv hook fish | source
 end
 
-if command -sq navi
-    navi widget fish | source
-end
-
 if command -sq zoxide
     zoxide init fish | source
 end
