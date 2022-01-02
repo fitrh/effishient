@@ -33,7 +33,7 @@ function __pyenv_create
             return
         end
         if python -m venv $argv
-            __pyenv_create_success $argv 'cwd '
+            __pyenv_create_success $argv '--cwd '
         end
         return
     end
@@ -93,6 +93,6 @@ function __pyenv_help
     printf "    -h, --help\t\t: Show this help\n"
     printf "\n    available argument for "
     printf "\e[1;96m--create\e[0m & \e[1;96m--use\e[0m\n"
-    printf "          cwd\t\t: Create / Use virtual environment"
+    printf "          --cwd\t\t: Create / Use virtual environment"
     printf " in current directory\n"
 end
