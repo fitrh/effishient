@@ -9,6 +9,8 @@ function pyenv
             __pyenv_create $argv[2..]
         case -u --use
             __pyenv_use $argv[2..]
+        case -r --remove
+            __pyenv_remove $argv[2..]
         case -l --list
             __pyenv_list
         case -h --help '*'
