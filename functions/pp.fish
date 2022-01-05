@@ -15,6 +15,7 @@ function pp --wraps pip
         case f freeze
             pip freeze $argv[2..]
         case i install
+            pip install -U pip
             pip install -U $argv[2..]
             pip freeze >~/.cache/pyenv/freeze_(date +'%Y%m%d_%H%M%S').log
         case l list
