@@ -7,7 +7,7 @@ function __path_help
     printf "\t\e[1maddto \e[1;94mi\e[0m\t\t: add \e[1;93mentrie\e[0m to "
     printf "\e[91m\$PATH\e[0m at index \e[1;94mi\e[0m\n"
     printf "\t\e[1mupdate \e[1;94mi \e[92mnew\e[0m\t: update \e[1;93mentrie\e[0m"
-    printf " at index \e[1;92mi\e[0m to \e[1;94mnew\e[0m\n"
+    printf " at index \e[1;94mi\e[0m to \e[1;92mnew\e[0m\n"
     printf "\t\e[1mdump \e[1;94mlog\e[0m\t: dump all entries in "
     printf "\e[91m\$PATH\e[0m to \e[1;94mlog\e[0m\n"
     printf "\t\t\t  if \e[1;94mlog\e[0m omitted, \e[1;94mlog\e[0m default to "
@@ -16,6 +16,6 @@ function __path_help
     printf "\e[91m\$PATH\e[0m\n\t\t\t  \e[1;93mentrie\e[0m "
     printf "can be a list of index or path\n"
     printf "\t\e[1mshow\e[0m\t\t: show all \e[91m\$PATH\e[0m entries\n"
-    printf "\t\e[1mh\e[0m, \e[1mhelp\e[0m\t\t: show this help\n"
+    printf "\t\e[1mhelp\e[0m\t\t: show this help\n"
     printf "\n"
 end
