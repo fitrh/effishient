@@ -1,4 +1,4 @@
-function __path_add_to --argument-names index path
+function __path_addto --argument-names index path
     set -l TEMP_PATH $fish_user_paths[$index..]
 
     for i in (seq (count $fish_user_paths) -1 $index)
