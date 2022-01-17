@@ -28,7 +28,11 @@ end
 
 function __jdk_list
     set -l JVM_DIR $HOME/.local/lib/jvm
-    exa --oneline --icons $JVM_DIR
+    if command -q exa
+        exa --only-dirs --oneline --icons $JVM_DIR
+        return
+    end
+    ls -1 $JVM_DIR
 end
 
 function __jdk_usage
