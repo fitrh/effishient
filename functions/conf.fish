@@ -10,8 +10,20 @@ function conf
     end
 
     set -l dir $HOME/.config
-    set -l edit e
-    set -l open_editor e -c ":Telescope find_files"
+    set -l edit
+    for e in $EDITOR vim vi
+        if command -q $e
+            set edit $e
+            break
+        end
+    end
+
+    if test -z $edit
+        log e "No available editor"
+        return 1
+    end
+
+    set -l open_editor $editor -c ":Telescope find_files"
     set -l config
 
     for arg in $argv
