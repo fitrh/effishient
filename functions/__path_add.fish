@@ -4,12 +4,12 @@ function __path_add
         return 1
     end
 
-    if not -e $argv
+    if not test -e $argv
         printf "\e[1;31m$argv\e[0m does not exist\n"
         return 1
     end
 
-    if not -d $argv
+    if not test -d $argv
         printf "\e[1;31m$argv\e[0m is not a directory\n"
         return 1
     end
