@@ -44,7 +44,7 @@ set -x TERMINFO $XDG_DATA_HOME/terminfo
 set -x RUSTUP_HOME $LOCAL_LIB/rust/rustup
 set -x RUST_BACKTRACE 1
 set -x VIMPKG $XDG_DATA_HOME/nvim/site/pack
-set -x VISUAL $HOME/apps/neovim/bin/nvim
+set -x VISUAL $EDITOR
 set -x XCURSOR_THEME capitaine-cursors
 set -x XMONAD_DATA_DIR $XDG_DATA_HOME/xmonad
 set -x XMONAD_CONFIG_DIR $XDG_CONFIG_HOME/xmonad
