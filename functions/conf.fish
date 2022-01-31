@@ -23,7 +23,7 @@ function conf
         return 1
     end
 
-    set -l open_editor $editor -c ":Telescope find_files"
+    set -l open_editor $edit -c ":Telescope find_files"
     set -l config
 
     for arg in $argv
