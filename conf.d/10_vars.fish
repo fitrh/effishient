@@ -6,7 +6,7 @@ set -x XDG_STATE_HOME $HOME/.local/state
 
 set -x LOCAL_BIN $HOME/.local/bin
 set -x LOCAL_LIB $HOME/.local/lib
-set -x LOCAL_SCRIPT $HOME/.local/scripts
+set -x LOCAL_SCRIPT $HOME/.local/script
 set -x LOCAL_SRC $HOME/.local/src
 
 set -x ANDROID_HOME $LOCAL_LIB/sdk/android
