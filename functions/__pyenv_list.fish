@@ -1,4 +1,8 @@
 function __pyenv_list
     set -l dir $HOME/.local/lib/pyenvs
-    exa --only-dirs --oneline --icons $dir
+    if command -q exa
+        exa --only-dirs --oneline --icons $dir
+        return
+    end
+    ls -1 $dir
 end
