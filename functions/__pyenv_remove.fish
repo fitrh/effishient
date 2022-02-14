@@ -4,17 +4,20 @@ function __pyenv_remove
         return 1
     end
 
-    if set i (contains -i -- "--cwd" $argv)
-        set -e -- argv[$i]
-        if not test -d $argv
-            log e $argv "does not exist"
-            return 1
+    for pattern in "." --cwd
+        if set i (contains -i -- "$pattern" $argv)
+            set -e -- argv[$i]
+            if not test -d $argv
+                log e $argv "does not exist"
+                return 1
+            end
+            if not rm -rfv $argv
+                log e "Fail to remove" $argv
+                return 1
+            end
+            log s $argv removed
+            return
         end
-        if not rm -rfv $argv
-            log e "Fail to remove" $argv
-            return 1
-        end
-        return
     end
 
     set -l dir $HOME/.local/lib/pyenvs
