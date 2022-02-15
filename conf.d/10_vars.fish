@@ -26,6 +26,7 @@ set -x DOTNET_ROOT $LOCAL_LIB/dotnet
 set -x EDITOR $HOME/apps/neovim/bin/nvim
 set -x EMSCRIPTEN_ROOT $HOME/git/emscripten
 set -x FLUTTER_ROOT $LOCAL_LIB/sdk/flutter
+set -x FLUTTER_SDK $FLUTTER_ROOT
 set -x FZF_DEFAULT_OPTS --reverse
 set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--preview 'bat -p --color=always {}'"
 set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--preview-window=right,65%,cycle"
