@@ -18,7 +18,7 @@ set -x CABAL_DIR $LOCAL_LIB/haskell/cabal
 set -x CARGO_HOME $LOCAL_LIB/rust/cargo
 set -x CHROME_EXECUTABLE (which chromium)
 set -x COMPOSER_BIN_DIR $LOCAL_LIB/php/composer/bin
-set -x DART_SDK $LOCAL_LIB/dart/sdk
+set -x DART_SDK $LOCAL_LIB/dart
 set -x DESKTOP_BG "Earth & The Satellite.png"
 set -x DENO_INSTALL $LOCAL_LIB/deno
 set -x DENO_INSTALL_ROOT $DENO_INSTALL/bin
