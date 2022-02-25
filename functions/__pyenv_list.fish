@@ -4,5 +4,5 @@ function __pyenv_list
         exa --only-dirs --oneline --icons $dir
         return
     end
-    ls -1 $dir
+    command ls --color --group-directories-first -hp -1 $dir
 end
