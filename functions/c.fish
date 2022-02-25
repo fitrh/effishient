@@ -13,6 +13,6 @@ function c --wraps cd
     if command -q exa
         exa -l --icons --group-directories-first -h
     else
-        ls --color --group-directories-first -hp
+        command ls --color --group-directories-first -hp
     end
 end
