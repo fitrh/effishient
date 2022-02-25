@@ -4,8 +4,11 @@ function promptcolor
     if test -z "$argv"
         printf "Please specify colorscheme to use.\n"
         printf "Available colorscheme\n"
-        exa --icons --group-directories-first -1 $COLOR_DIR
-        return
+        if command -q exa
+            exa --icons --group-directories-first -1 $COLOR_DIR
+            return
+        end
+        ls --color --group-directories-first -hp -1 $COLOR_DIR
     end
 
     if test -e $COLOR_DIR/$argv[1].fish

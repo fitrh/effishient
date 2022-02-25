@@ -1,5 +1,9 @@
 function el --wraps=exa
-    exa --icons --color-scale \
-        --group-directories-first \
-        $argv
+    if command -q exa
+        exa --icons --color-scale \
+            --group-directories-first \
+            $argv
+        return
+    end
+    command ls --color --group-directories-first -hp $argv
 end

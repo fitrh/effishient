@@ -4,7 +4,11 @@ function conf
     if test -z "$argv"
         cd $XDG_CONFIG_HOME; or cd $HOME/.config
         clear
-        exa --only-dirs --icons
+        if command -q exa
+            exa --only-dirs --icons
+        else
+            command ls --color --group-directories-first -hp
+        end
         set --erase _CWD
         return
     end

@@ -9,7 +9,11 @@ function g --wraps git
         printf "  \__, |_|\__|          \___\___/|_|_|\___|\___|\__|_|\___/|_| |_|___/ \n"
         printf "  |___/                                                                \n"
         printf "                                                                       \n\n\e[0m"
-        exa --icons --group-directories-first
+        if command -q exa
+            exa --icons --group-directories-first
+        else
+            command ls --color --group-directories-first -hp
+        end
         printf "\n"
         return
     end
