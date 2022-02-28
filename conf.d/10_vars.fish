@@ -37,6 +37,7 @@ set -x GOPATH $LOCAL_LIB/go
 set -x GPG_TTY (tty)
 set -x GRADLE_USER_HOME $XDG_CACHE_HOME/gradle
 set -x LC_ALL en_US.UTF-8
+set -x LUALS $HOME/git/lua-language-server
 set -x MAVEN_USER_HOME $XDG_CACHE_HOME/maven
 set -x npm_config_prefix $LOCAL_LIB/node_modules
 set -x PUB_CACHE $LOCAL_LIB/dart/pub-cache
