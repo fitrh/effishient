@@ -30,6 +30,29 @@ function fish_prompt --description 'Write out the prompt'
     set -l vcs_prefix
     if test (fish_git_prompt)
         set vcs_prefix ""
+        set -g __fish_git_prompt_show_informative_status 1 # enable git status information
+        set -g __fish_git_prompt_color_prefix --bold
+        set -g __fish_git_prompt_color_suffix --bold
+        set -g __fish_git_prompt_color_branch --bold
+        set -g __fish_git_prompt_char_stateseparator (set_color black) "·$normal"
+        set -g __fish_git_prompt_char_cleanstate ''
+        set -g __fish_git_prompt_color_dirtystate white
+        set -g __fish_git_prompt_char_dirtystate " *"
+        set -g __fish_git_prompt_color_invalidstate brred
+        set -g __fish_git_prompt_char_invalidstate " #"
+        set -g __fish_git_prompt_color_stagedstate green
+        set -g __fish_git_prompt_char_stagedstate " +"
+        set -g __fish_git_prompt_color_stashstate yellow
+        set -g __fish_git_prompt_char_stashstate " \$"
+        set -g __fish_git_prompt_color_untrackedfiles brblack
+        set -g __fish_git_prompt_char_untrackedfiles " …"
+        set -g __fish_git_prompt_color_upstream_ahead brblue
+        set -g __fish_git_prompt_char_upstream_ahead " ↑"
+        set -g __fish_git_prompt_color_upstream_behind brwhite
+        set -g __fish_git_prompt_char_upstream_behind " ↓"
+        set -g __fish_git_prompt_color_upstream_diverged magenta
+        set -g __fish_git_prompt_char_upstream_diverged " <>"
+        set -g __fish_git_prompt_char_upstream_equal " ="
     end
 
     echo -n -s -e \
