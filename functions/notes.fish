@@ -1,6 +1,6 @@
 function notes -d "Personal Notes manager"
     set -l cwd $PWD
-    set -l dir $HOME/documents/markdown
+    set -l dir $HOME/document/markdown
     cd $dir
     if test -z "$argv"
         glow -w 120 .
