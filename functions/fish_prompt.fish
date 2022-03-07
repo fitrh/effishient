@@ -26,10 +26,18 @@ function fish_prompt --description 'Write out the prompt'
     (set_color $fish_color_status) \
     (set_color --bold $fish_color_status) $last_pipestatus)
 
+    # Set preifx icon if we're in a git repo
+    set -l vcs_prefix
+    if test (fish_git_prompt)
+        set vcs_prefix ""
+    end
+
     echo -n -s -e \
         (set_color $fish_color_user) "$USER" $normal @ \
-        (set_color $color_host) (prompt_hostname) $normal ' in ' \
-        (set_color $color_cwd) " " (basename (prompt_pwd)) $normal \
-        (set_color --bold brmagenta) " " (fish_vcs_prompt) $normal \
+        (set_color $color_host) (prompt_hostname) $normal " in " \
+        (set_color $color_cwd) "" $normal " " \
+        (set_color --bold) (basename (prompt_pwd)) $normal " " \
+        (set_color --bold brmagenta) $vcs_prefix $normal \
+        (set_color --bold) (fish_vcs_prompt) $normal \
         $prompt_status "\n" $suffix " "
 end
