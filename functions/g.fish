@@ -104,6 +104,8 @@ function g --wraps git
             git remote -v $argv[2..-1]
         case st
             git status $argv[2..-1]
+        case stu
+            git status --untracked-files=no $argv[2..]
         case stacl
             git stash clear $argv[2..-1]
         case stad
