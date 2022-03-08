@@ -8,6 +8,18 @@ function __pyenv_use
 
     for pattern in "." --cwd
         if set i (contains -i -- "$pattern" $argv)
+            set -l dirs (command ls -A)
+
+            if contains -- venv in $dirs
+                __pyenv_use_verify venv
+                return
+            end
+
+            if contains -- ".venv" in $dirs
+                __pyenv_use_verify ".venv"
+                return
+            end
+
             set -e -- argv[$i]
             __pyenv_use_verify $argv
             return

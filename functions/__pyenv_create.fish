@@ -7,10 +7,26 @@ function __pyenv_create
     for pattern in "." --cwd
         if set i (contains -i -- "$pattern" $argv)
             set -e -- argv[$i]
+
+            if test -z "$argv"
+                if test -d venv
+                    printf "\e[1;92mvenv\e[0m is already exists.\n"
+                    printf "Activating \e[1;92mvenv\e[0m...\n"
+                    __pyenv_use_verify venv
+                    return
+                end
+
+                if python -m venv venv
+                    __pyenv_create_success venv "$pattern "
+                end
+                return
+            end
+
             if test -d $argv
                 printf "\e[1;92m%s\e[0m is already exists.\n" $argv
                 return 1
             end
+
             if python -m venv $argv
                 __pyenv_create_success $argv "$pattern "
             end

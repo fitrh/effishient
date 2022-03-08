@@ -11,6 +11,10 @@ function __pyenv_help
     printf "    -h, --help\t\t: Show this help\n"
     printf "\n    available argument for "
     printf "\e[1;96m--create\e[0m, \e[1;96m--use\e[0m & \e[1;96m--remove\e[0m\n"
-    printf "          --cwd\t\t: Create / Use virtual environment"
-    printf " in current directory\n"
+    printf "          '.' | --cwd\t: Run command in current directory\n"
+    printf "\n"
+    printf "          If \e[1;33m<environment directory>\e[0m is omitted:\n"
+    printf "              -c, --create will use 'venv' as default\n"
+    printf "              -u, --use will use 'venv' or '.venv' as default\n"
+    printf "\n"
 end
