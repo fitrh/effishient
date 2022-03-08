@@ -3,6 +3,14 @@ set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_STATE_HOME $HOME/.local/state
+set -x XDG_DESKTOP_DIR (xdg-user-dir DESKTOP)
+set -x XDG_DOCUMENTS_DIR (xdg-user-dir DOCUMENTS)
+set -x XDG_DOWNLOAD_DIR (xdg-user-dir DOWNLOAD)
+set -x XDG_MUSIC_DIR (xdg-user-dir MUSIC)
+set -x XDG_PICTURES_DIR (xdg-user-dir PICTURES)
+set -x XDG_PUBLICSHARE_DIR (xdg-user-dir PUBLICSHARE)
+set -x XDG_TEMPLATES_DIR (xdg-user-dir TEMPLATES)
+set -x XDG_VIDEOS_DIR (xdg-user-dir VIDEOS)
 
 set -x LOCAL_BIN $HOME/.local/bin
 set -x LOCAL_LIB $HOME/.local/lib
