@@ -31,7 +31,7 @@ set -x DESKTOP_BG "Earth & The Satellite.png"
 set -x DENO_INSTALL $LOCAL_LIB/deno
 set -x DENO_INSTALL_ROOT $DENO_INSTALL/bin
 set -x DOTNET_ROOT $LOCAL_LIB/dotnet
-set -x EDITOR nvim
+set -x EDITOR vi
 set -x EMSCRIPTEN_ROOT $HOME/git/emscripten
 set -x FLUTTER_ROOT $LOCAL_LIB/sdk/flutter
 set -x FLUTTER_SDK $FLUTTER_ROOT
