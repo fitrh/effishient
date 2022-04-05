@@ -66,6 +66,10 @@ function g --wraps git
             git log --stat -p $argv[2..]
         case lo
             git log --oneline $argv[2..]
+        case lop
+            git log \
+                --pretty="format:%C(yellow)%h %C(magenta)(%cd) %C(brightwhite)%<(50,trunc)%s%Creset %C(brightblack)ﰖ %C(blue)%aN%C(brightblack) %cr %C(bold red)%D" \
+                --date="format:%Y-%m-%d %I:%M %p"
         case ls
             git log -S $argv[2..]
         case m
