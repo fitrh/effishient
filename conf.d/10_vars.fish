@@ -51,7 +51,7 @@ set -x npm_config_prefix $LOCAL_LIB/node_modules
 set -x PUB_CACHE $LOCAL_LIB/dart/pub-cache
 set -x STACK_ROOT $LOCAL_LIB/haskell/stack
 set -x TERMINFO $XDG_DATA_HOME/terminfo
-set -x TMUX_STATUSBAR_THEME tokyonight/bgless
+set -x TMUX_DEFAULT_SESSION "Scratchpad"
 set -x RUSTUP_HOME $LOCAL_LIB/rust/rustup
 set -x RUST_BACKTRACE 1
 set -x VIMPKG $XDG_DATA_HOME/nvim/site/pack
