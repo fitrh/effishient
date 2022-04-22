@@ -68,7 +68,7 @@ function g --wraps git
             git log --oneline $argv[2..]
         case lop
             git log \
-                --pretty="format:%C(yellow)%h %C(magenta)(%cd) %C(brightwhite)%<(50,trunc)%s%Creset %C(brightblack)ﰖ %C(blue)%aN%C(brightblack) %cr %C(bold red)%D" \
+                --pretty="format:%C(bold yellow)%h %Creset%C(dim magenta)(%cd)%Creset %C(brightwhite)%<(70,trunc)%s%Creset %C(brightblack)ﰖ %C(blue)%<(15,trunc)%aN %C(brightblack)%<(15,trunc)%cr %C(bold red)%>(15,trunc)%D" \
                 --date="format:%Y-%m-%d %H:%M"
         case ls
             git log -S $argv[2..]
