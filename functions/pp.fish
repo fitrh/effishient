@@ -12,6 +12,8 @@ function pp --wraps pip
     end
 
     switch $argv[1]
+        case dev
+            pip install -U black flake8 isort mypy pylint pytest
         case f freeze
             pip freeze $argv[2..]
         case i install
