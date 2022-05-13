@@ -6,34 +6,36 @@ function pp --wraps pip
         return
     end
 
+    set CMD "python -m pip"
+
     if test -z "$argv"
-        pip --help
+        $CMD --help
         return
     end
 
     switch $argv[1]
         case dev
-            pip install -U black flake8 isort mypy pylint pytest
+            $CMD install -U black flake8 isort mypy pylint pytest
         case f freeze
-            pip freeze $argv[2..]
+            $CMD freeze $argv[2..]
         case i install
-            pip install -U pip
-            pip install -U $argv[2..]
-            pip freeze >~/.cache/pyenv/freeze_(date +'%Y%m%d_%H%M%S').log
+            $CMD install -U pip
+            $CMD install -U $argv[2..]
+            $CMD freeze >~/.cache/pyenv/freeze_(date +'%Y%m%d_%H%M%S').log
         case l list
             __pp_list $argv[2..]
         case o outdate
-            pip list -o --format=freeze $argv[2..]
+            $CMD list -o --format=freeze $argv[2..]
         case pip
-            pip install --upgrade pip $argv[2..]
+            $CMD install --upgrade pip $argv[2..]
         case s show
-            pip show -v $argv[2..]
+            $CMD show -v $argv[2..]
         case u uninstall
-            pip uninstall $argv[2..]
+            $CMD uninstall $argv[2..]
         case up upgrade
             __pp_upgrade $argv[2..]
         case '*'
-            pip $argv
+            $CMD $argv
     end
 
 end
@@ -48,17 +50,17 @@ function __pp_list
         end
     end
 
-    pip list --format=$FORMAT
+    python -m pip list --format=$FORMAT
 end
 
 function __pp_upgrade
     set -l CACHE "$HOME/.cache/pyenv"
-    if pip list -o --format=json | jq -r .[].name >outdate.txt
-        if pip install -Ur outdate.txt
+    if python -m pip list -o --format=json | jq -r .[].name >outdate.txt
+        if python -m pip install -Ur outdate.txt
             if rm -rf outdate.txt
                 set -l cache_file "freeze_"(date +'%Y%m%d_%H%M%S')".log"
                 printf "# %s\n" $PWD >$CACHE/$cache_file
-                pip freeze >>$CACHE/$cache_file
+                python -m pip freeze >>$CACHE/$cache_file
             end
         end
     end
