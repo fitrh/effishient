@@ -6,7 +6,7 @@ function pp --wraps pip
         return
     end
 
-    set CMD "python -m pip"
+    set CMD python -m pip
 
     if test -z "$argv"
         $CMD --help
