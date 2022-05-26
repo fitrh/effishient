@@ -79,6 +79,8 @@ function g --wraps git
             git add --patch $argv[2..]
         case pl
             __g_pull $argv[2..]
+        case pls
+            git pull --rebase --depth 1 $argv[2..]
         case ps
             git push $argv[2..-1]
         case psf
