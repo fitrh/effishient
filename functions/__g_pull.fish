@@ -1,6 +1,6 @@
 function __g_pull
     if test -z "$argv"
-        if not git pull --ff-only --progress --rebase=false $argv
+        if not git pull --ff-only --progress --rebase=false
             return 1
         end
         return 0
