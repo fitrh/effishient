@@ -1,4 +1,4 @@
-function path
+function mpath
     if test -z "$argv"
         __path_show
         return

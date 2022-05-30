@@ -1,5 +1,5 @@
 function __path_help
-    printf "Usage : \e[1;32mpath \e[1;96moperation "
+    printf "Usage : \e[1;32mmpath \e[1;96moperation "
     printf "\e[1;94m<option>\e[0m \e[1;93mentrie\e[0m\n\n"
     printf "Available operation :\n\n"
     printf "\t\e[1madd\e[0m\t\t: add \e[1;93mentrie\e[0m to "
