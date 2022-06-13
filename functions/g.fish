@@ -109,6 +109,8 @@ function g --wraps git
             git remote set-url $argv[2..]
         case rv
             git remote -v $argv[2..-1]
+        case ss
+            git status --short $argv[2..]
         case st
             git status $argv[2..-1]
         case stu
