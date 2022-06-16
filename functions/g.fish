@@ -111,6 +111,8 @@ function g --wraps git
             git remote -v $argv[2..-1]
         case ss
             git status --short $argv[2..]
+        case ssu
+            git status --short -uno $argv[2..]
         case st
             git status $argv[2..-1]
         case stu
