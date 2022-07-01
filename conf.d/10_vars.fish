@@ -47,6 +47,7 @@ set -x GNUPGHOME $XDG_DATA_HOME/gnupg
 set -x GOPATH $LOCAL_LIB/go
 set -x GPG_TTY (tty)
 set -x GRADLE_USER_HOME $XDG_CACHE_HOME/gradle
+set -x GRIM_DEFAULT_DIR $XDG_PICTURES_DIR/screenshot/grim
 set -x LC_ALL en_US.UTF-8
 set -x LUALS $HOME/git/lua-language-server
 set -x MAVEN_USER_HOME $XDG_CACHE_HOME/maven
