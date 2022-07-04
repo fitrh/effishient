@@ -51,6 +51,8 @@ function __g_update_dir
 
     cd $cwd
     if not contains -- no-log $argv
-        printf "Log saved into %s\n" $git_log
+        if test -e $git_log
+            printf "Log saved into %s\n" $git_log
+        end
     end
 end
