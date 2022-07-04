@@ -36,10 +36,10 @@ function __g_update_dir
                 set -l new_rev (git rev-parse --short HEAD)
 
                 if test $rev != $new_rev
-                    printf "$GREEN$BOLD%s : Updated.$NORM\n" $dir
+                    printf "$GREEN$BOLD%s: Updated.$NORM\n" $dir
                     if not contains -- no-log $argv
-                        printf "%s updated at %s\n" \
-                            $dir (date +'%H:%M:%S%s%Z') >>$git_log
+                        printf "%s..%s: %s updated at %s\n" \
+                            $rev $new_rev $dir (date +'%H:%M:%S%s%Z') >>$git_log
                     end
                 else
                     printf "$BLUE$BOLD%s : Already up to date.$NORM\n" $dir
