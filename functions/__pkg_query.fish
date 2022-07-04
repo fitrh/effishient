@@ -21,6 +21,8 @@ function __pkg_query
             __pkg_query_latest $argv[2..]
         case unused u
             pacman -Qtdq
+        case h help
+            __pkg_query_help
         case '*'
             pacman -Qs $argv
     end
