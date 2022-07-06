@@ -2,7 +2,8 @@ function sc --wraps systemctl
 
     set --local _sc_user_command \
         list-units list-sockets is-active status show help list-unit-files \
-        is-enabled list-jobs show-environment cat list-machines
+        is-enabled list-jobs show-environment cat list-machines \
+        poweroff reboot suspend hibernate
 
     set --local _sc_root_command \
         start stop reload restart try-restart isolate kill \
