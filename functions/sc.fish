@@ -20,7 +20,12 @@ function sc --wraps systemctl
     else if contains $argv[1] $_sc_root_command
         sudo systemctl $argv
     else
-        systemctl --help
+        switch $argv[1]
+            case u user -u --user
+                systemctl --user $argv[2..]
+            case "*"
+                systemctl --help
+        end
     end
 
 end
