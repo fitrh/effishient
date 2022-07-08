@@ -10,6 +10,11 @@ function dotfile --wraps git
             __dotfile_cmd status $argv[2..]
         case cm
             __dotfile_commit $argv[2..]
+        case lop
+            __dotfile_cmd log \
+                --pretty="format:%C(bold yellow)%h %Creset%C(dim magenta)(%cd)%Creset %C(brightwhite)%<(70,trunc)%s%Creset %C(brightblack)ﰖ %C(blue)%<(15,trunc)%aN %C(brightblack)%<(15,trunc)%cr %C(bold red)%>(15,trunc)%D" \
+                --date="format:%Y-%m-%d %H:%M" \
+                $argv[2..]
         case patch
             __dotfile_cmd add --patch $argv[2..]
         case ps
