@@ -1,4 +1,9 @@
 function __g_init
+    if test $PWD = $HOME
+        log i "use dotfile command"
+        return 0
+    end
+
     set DIR (basename (pwd))
     if not git init $argv
         printf "\n\e[1;31mFAILED\e[0m: Init \e[1m%s\e[0m as git repository\n" $DIR

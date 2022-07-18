@@ -1,4 +1,9 @@
 function __g_pull
+    if test $PWD = $HOME
+        log i "use dotfile command"
+        return 0
+    end
+
     set -l old_head (git rev-parse --short HEAD)
     if test -z "$argv"
         if not git pull --ff-only --progress --rebase=false

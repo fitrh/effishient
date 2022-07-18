@@ -1,4 +1,9 @@
 function __g_update_dir
+    if test $PWD = $HOME
+        log i "use dotfile command"
+        return 0
+    end
+
     set -l NORM "\e[0;0m"
     set -l GREEN "\e[0;32m"
     set -l RED "\e[0;31m"

@@ -1,4 +1,12 @@
 function g --wraps git
+    function CMD
+        if test $PWD = $HOME
+            __dotfile_cmd $argv
+        else
+            command git $argv
+        end
+    end
+
     if test -z "$argv"
         cd ~/git && clear
         printf "\e[1;40;96m"
@@ -20,121 +28,121 @@ function g --wraps git
 
     switch $argv[1]
         case a add
-            git add $argv[2..-1]
+            CMD add $argv[2..-1]
         case br
-            git branch $argv[2..-1]
+            CMD branch $argv[2..-1]
         case bra
-            git branch --all $argv[2..-1]
+            CMD branch --all $argv[2..-1]
         case brc
-            git branch $argv[2..-1]
-            git checkout $argv[2..-1]
+            CMD branch $argv[2..-1]
+            CMD checkout $argv[2..-1]
         case brd
-            git branch --delete $argv[2..-1]
+            CMD branch --delete $argv[2..-1]
         case brv
-            git branch -vv $argv[2..]
+            CMD branch -vv $argv[2..]
         case c
-            git clone $argv[2..-1]
+            CMD clone $argv[2..-1]
         case cd
-            git clone --depth $argv[2..]
+            CMD clone --depth $argv[2..]
         case ch
-            git checkout $argv[2..-1]
+            CMD checkout $argv[2..-1]
         case cm
             if test -z "$argv[2]"
-                git commit -S
+                CMD commit -S
             else
-                git commit -S -m $argv[2..-1]
+                CMD commit -S -m $argv[2..-1]
             end
         case cma
-            git commit --amend $argv[2..]
+            CMD commit --amend $argv[2..]
         case conf
-            git config $argv[2..]
+            CMD config $argv[2..]
         case d
-            git diff $argv[2..-1]
+            CMD diff $argv[2..-1]
         case dc
-            git diff --cached $argv[2..]
+            CMD diff --cached $argv[2..]
         case f
-            git fetch $argv[2..-1]
+            CMD fetch $argv[2..-1]
         case hash
-            git rev-parse --short $argv[2..]
+            CMD rev-parse --short $argv[2..]
         case i init
             __g_init $argv[2..]
         case is
-            git rev-parse --is-inside-work-tree $argv[2..]
+            CMD rev-parse --is-inside-work-tree $argv[2..]
         case l
-            git log --stat $argv[2..-1]
+            CMD log --stat $argv[2..-1]
         case ll
-            git log --stat -p $argv[2..]
+            CMD log --stat -p $argv[2..]
         case lo
-            git log --oneline $argv[2..]
+            CMD log --oneline $argv[2..]
         case lop
-            git log \
+            CMD log \
                 --pretty="format:%C(bold yellow)%h %Creset%C(dim magenta)(%cd)%Creset %C(brightwhite)%<(70,trunc)%s%Creset %C(brightblack)ﰖ %C(blue)%<(15,trunc)%aN %C(brightblack)%<(15,trunc)%cr %C(bold red)%>(15,trunc)%D" \
                 --date="format:%Y/%m/%d %H:%M" \
                 $argv[2..]
         case ls
-            git log -S $argv[2..]
+            CMD log -S $argv[2..]
         case m
-            git merge $argv[2..-1]
+            CMD merge $argv[2..-1]
         case patch
-            git add --patch $argv[2..]
+            CMD add --patch $argv[2..]
         case pl
             __g_pull $argv[2..]
         case pls
-            git pull --rebase --depth 1 $argv[2..]
+            CMD pull --rebase --depth 1 $argv[2..]
         case ps
-            git push $argv[2..-1]
+            CMD push $argv[2..-1]
         case psf
-            git push --force-with-lease $argv[2..]
+            CMD push --force-with-lease $argv[2..]
         case ra
-            git remote add $argv[2..]
+            CMD remote add $argv[2..]
         case rb
-            git rebase $argv[2..-1]
+            CMD rebase $argv[2..-1]
         case rbi
-            git rebase -i $argv[2..-1]
+            CMD rebase -i $argv[2..-1]
         case re
-            git restore $argv[2..-1]
+            CMD restore $argv[2..-1]
         case res
-            git reset --soft $argv[2..]
+            CMD reset --soft $argv[2..]
         case red
-            git reset --hard $argv[2..]
+            CMD reset --hard $argv[2..]
         case rr
-            git remote rename $argv[2..-1]
+            CMD remote rename $argv[2..-1]
         case rm
-            git rm $argv[2..-1]
+            CMD rm $argv[2..-1]
         case rmc
-            git rm --cached $argv[2..]
+            CMD rm --cached $argv[2..]
         case rmd
-            git rm -r $argv[2..]
+            CMD rm -r $argv[2..]
         case rs
-            git remote set-url $argv[2..]
+            CMD remote set-url $argv[2..]
         case rv
-            git remote -v $argv[2..-1]
+            CMD remote -v $argv[2..-1]
         case ss
-            git status --short $argv[2..]
+            CMD status --short $argv[2..]
         case ssu
-            git status --short -uno $argv[2..]
+            CMD status --short -uno $argv[2..]
         case st
-            git status $argv[2..-1]
+            CMD status $argv[2..-1]
         case stu
-            git status --untracked-files=no $argv[2..]
+            CMD status --untracked-files=no $argv[2..]
         case stacl
-            git stash clear $argv[2..-1]
+            CMD stash clear $argv[2..-1]
         case stad
-            gits stash drop $argv[2..]
+            CMD stash drop $argv[2..]
         case stap
-            git stash apply $argv[2..-1]
+            CMD stash apply $argv[2..-1]
         case stapop
-            gits stash pop $argv[2..]
+            CMD stash pop $argv[2..]
         case stas
-            git stash $argv[2..-1]
+            CMD stash $argv[2..-1]
         case stasl
-            git stash list $argv[2..-1]
+            CMD stash list $argv[2..-1]
         case stashow
-            git stash show $argv[2..-1]
+            CMD stash show $argv[2..-1]
         case stasv
-            git statsh save $argv[2..-1]
+            CMD statsh save $argv[2..-1]
         case sub
-            git submodule $argv[2..]
+            CMD submodule $argv[2..]
         case sum
             if command -sq onefetch
                 onefetch
@@ -144,8 +152,8 @@ function g --wraps git
         case url
             __g_get_url $argv[2..]
         case sw
-            git switch $argv[2..-1]
+            CMD switch $argv[2..-1]
         case '*'
-            git $argv
+            CMD $argv
     end
 end
