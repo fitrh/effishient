@@ -28,40 +28,40 @@ function g --wraps git
 
     switch $argv[1]
         case a add
-            CMD add $argv[2..-1]
+            CMD add $argv[2..]
         case br
-            CMD branch $argv[2..-1]
+            CMD branch $argv[2..]
         case bra
-            CMD branch --all $argv[2..-1]
+            CMD branch --all $argv[2..]
         case brc
-            CMD branch $argv[2..-1]
-            CMD checkout $argv[2..-1]
+            CMD branch $argv[2..]
+            CMD checkout $argv[2..]
         case brd
-            CMD branch --delete $argv[2..-1]
+            CMD branch --delete $argv[2..]
         case brv
             CMD branch -vv $argv[2..]
         case c
-            CMD clone $argv[2..-1]
+            CMD clone $argv[2..]
         case cd
             CMD clone --depth $argv[2..]
         case ch
-            CMD checkout $argv[2..-1]
+            CMD checkout $argv[2..]
         case cm
             if test -z "$argv[2]"
                 CMD commit -S
             else
-                CMD commit -S -m $argv[2..-1]
+                CMD commit -S -m $argv[2..]
             end
         case cma
             CMD commit --amend $argv[2..]
         case conf
             CMD config $argv[2..]
         case d
-            CMD diff $argv[2..-1]
+            CMD diff $argv[2..]
         case dc
             CMD diff --cached $argv[2..]
         case f
-            CMD fetch $argv[2..-1]
+            CMD fetch $argv[2..]
         case hash
             CMD rev-parse --short $argv[2..]
         case i init
@@ -69,7 +69,7 @@ function g --wraps git
         case is
             CMD rev-parse --is-inside-work-tree $argv[2..]
         case l
-            CMD log --stat $argv[2..-1]
+            CMD log --stat $argv[2..]
         case ll
             CMD log --stat -p $argv[2..]
         case lo
@@ -82,7 +82,7 @@ function g --wraps git
         case ls
             CMD log -S $argv[2..]
         case m
-            CMD merge $argv[2..-1]
+            CMD merge $argv[2..]
         case patch
             CMD add --patch $argv[2..]
         case pl
@@ -90,25 +90,25 @@ function g --wraps git
         case pls
             CMD pull --rebase --depth 1 $argv[2..]
         case ps
-            CMD push $argv[2..-1]
+            CMD push $argv[2..]
         case psf
             CMD push --force-with-lease $argv[2..]
         case ra
             CMD remote add $argv[2..]
         case rb
-            CMD rebase $argv[2..-1]
+            CMD rebase $argv[2..]
         case rbi
-            CMD rebase -i $argv[2..-1]
+            CMD rebase -i $argv[2..]
         case re
-            CMD restore $argv[2..-1]
+            CMD restore $argv[2..]
         case res
             CMD reset --soft $argv[2..]
         case red
             CMD reset --hard $argv[2..]
         case rr
-            CMD remote rename $argv[2..-1]
+            CMD remote rename $argv[2..]
         case rm
-            CMD rm $argv[2..-1]
+            CMD rm $argv[2..]
         case rmc
             CMD rm --cached $argv[2..]
         case rmd
@@ -116,31 +116,31 @@ function g --wraps git
         case rs
             CMD remote set-url $argv[2..]
         case rv
-            CMD remote -v $argv[2..-1]
+            CMD remote -v $argv[2..]
         case ss
             CMD status --short $argv[2..]
         case ssu
             CMD status --short -uno $argv[2..]
         case st
-            CMD status $argv[2..-1]
+            CMD status $argv[2..]
         case stu
             CMD status --untracked-files=no $argv[2..]
         case stacl
-            CMD stash clear $argv[2..-1]
+            CMD stash clear $argv[2..]
         case stad
             CMD stash drop $argv[2..]
         case stap
-            CMD stash apply $argv[2..-1]
+            CMD stash apply $argv[2..]
         case stapop
             CMD stash pop $argv[2..]
         case stas
-            CMD stash $argv[2..-1]
+            CMD stash $argv[2..]
         case stasl
-            CMD stash list $argv[2..-1]
+            CMD stash list $argv[2..]
         case stashow
-            CMD stash show $argv[2..-1]
+            CMD stash show $argv[2..]
         case stasv
-            CMD statsh save $argv[2..-1]
+            CMD statsh save $argv[2..]
         case sub
             CMD submodule $argv[2..]
         case sum
@@ -148,11 +148,11 @@ function g --wraps git
                 onefetch
             end
         case up
-            __g_update_dir $argv[2..-1]
+            __g_update_dir $argv[2..]
         case url
             __g_get_url $argv[2..]
         case sw
-            CMD switch $argv[2..-1]
+            CMD switch $argv[2..]
         case '*'
             CMD $argv
     end

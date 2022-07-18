@@ -10,9 +10,9 @@ function mirr
 
     switch $argv[1]
         case -g --generate
-            __mirr_generate $argv[2..-1]
+            __mirr_generate $argv[2..]
         case -l --list
-            __mirr_list $argv[2..-1]
+            __mirr_list $argv[2..]
         case -s --status
             echo "Current Mirror Status"
             tail -n +6 $__MIRRORS

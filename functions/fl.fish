@@ -7,17 +7,17 @@ function fl
 
     switch $argv[1]
         case c crt create
-            flutter create -v $argv[2..-1]
+            flutter create -v $argv[2..]
         case d doc doctor
-            flutter doctor -v $argv[2..-1]
+            flutter doctor -v $argv[2..]
         case get
-            flutter packages get -v $argv[2..-1]
+            flutter packages get -v $argv[2..]
         case r run
-            flutter run -v $argv[2..-1]
+            flutter run -v $argv[2..]
         case u up
-            flutter packages upgrade -b $argv[-2..-1]
+            flutter packages upgrade -b $argv[-2..]
         case upgrade
-            flutter upgrade -v $argv[2..-1]
+            flutter upgrade -v $argv[2..]
         case '*'
             flutter $argv
     end
