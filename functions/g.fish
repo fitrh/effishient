@@ -1,7 +1,7 @@
 function g --wraps git
     function CMD
         if test $PWD = $HOME
-            __dotfile_cmd $argv
+            dotfile $argv
         else
             command git $argv
         end
