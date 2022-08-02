@@ -10,6 +10,7 @@ function c --wraps cd
     end
 
     cd $_DIR
+    clear
     if command -q exa
         exa -l --icons --group-directories-first -h
     else
