@@ -6,6 +6,6 @@ if status is-login
         set -l LOG $LOG_DIR/$LOG_FILE
         exec startx -- -keeptty &>$LOG
     else if test \( -z "$WAYLAND_DISPLAY" \) -a \( "$XDG_VTNR" -eq 4 \)
-        $XDG_CONFIG_HOME/river/start
+        exec $XDG_CONFIG_HOME/river/start
     end
 end
