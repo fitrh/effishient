@@ -41,6 +41,7 @@ set -x FLUTTER_SDK $FLUTTER_ROOT
 set -x FZF_DEFAULT_OPTS --reverse
 set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--preview 'bat -p --color=always {}'"
 set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--preview-window=right,65%,cycle"
+set FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS "--prompt=' ' --pointer="
 set -x GHCUP_USE_XDG_DIRS true
 set -x GHCUP_INSTALL_BASE_PREFIX $HOME/.local
 set -x GNUPGHOME $XDG_DATA_HOME/gnupg
