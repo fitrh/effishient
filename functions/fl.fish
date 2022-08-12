@@ -1,4 +1,4 @@
-function fl
+function fl --wraps flutter
 
     if test (count $argv) -eq 0
         flutter --help
@@ -10,7 +10,7 @@ function fl
             flutter create -v $argv[2..]
         case d doc doctor
             flutter doctor -v $argv[2..]
-        case get
+        case g get
             flutter packages get -v $argv[2..]
         case r run
             flutter run -v $argv[2..]
