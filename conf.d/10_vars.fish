@@ -33,6 +33,7 @@ set -x DART_SDK $LOCAL_LIB/dart
 set -x DESKTOP_BG "Earth & The Satellite.png"
 set -x DENO_INSTALL $LOCAL_LIB/deno
 set -x DENO_INSTALL_ROOT $DENO_INSTALL/bin
+set -x DIRENV_LOG_FORMAT ""
 set -x DOTNET_ROOT $LOCAL_LIB/dotnet
 set -x EDITOR vi
 set -x EMSCRIPTEN_ROOT $HOME/git/emscripten
