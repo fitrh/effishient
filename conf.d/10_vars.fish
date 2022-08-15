@@ -50,7 +50,7 @@ set -x GPG_TTY (tty)
 set -x GRADLE_USER_HOME $XDG_CACHE_HOME/gradle
 set -x GRIM_DEFAULT_DIR $XDG_PICTURES_DIR/screenshot/grim
 set -x LC_ALL en_US.UTF-8
-set -x LUALS $LOCAL_LIB/lua-language-server
+set -x LUA_LS $LOCAL_LIB/lua-language-server
 set -x MAVEN_USER_HOME $XDG_CACHE_HOME/maven
 set -x npm_config_prefix $LOCAL_LIB/node_modules
 set -x PUB_CACHE $LOCAL_LIB/dart/pub-cache
