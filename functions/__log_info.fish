@@ -3,6 +3,8 @@ function __log_info
         return 0
     end
 
-    printf "\e[1;94m%s\e[0m " $argv
+    set LABEL $argv[1]
+    set MSG $argv[2..]
+    printf "\e[0;94m%s\e[0m \e[1;37m%s\e[0m " $LABEL $MSG
     printf "\n"
 end

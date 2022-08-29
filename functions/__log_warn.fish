@@ -3,6 +3,8 @@ function __log_warn
         return 0
     end
 
-    printf "\e[1;93m%s\e[0m " $argv
+    set LABEL $argv[1]
+    set MSG $argv[2..]
+    printf "\e[0;93m%s\e[0m \e[1;37m%s\e[0m " $LABEL $MSG
     printf "\n"
 end
