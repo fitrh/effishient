@@ -1,5 +1,6 @@
 function log
     if test -z "$argv"
+        __log_help
         return 0
     end
 
@@ -16,5 +17,7 @@ function log
             __log_trace "[TRACE]" $argv[2..]
         case d debug
             __log_debug "[DEBUG]" $argv[2..]
+        case "*"
+            __log_help
     end
 end
