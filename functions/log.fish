@@ -17,6 +17,10 @@ function log
             __log_trace "[TRACE]" $argv[2..]
         case d debug
             __log_debug "[DEBUG]" $argv[2..]
+        case test
+            for level in error warn info success trace debug
+                log $level "$level log message"
+            end
         case "*"
             __log_help
     end
