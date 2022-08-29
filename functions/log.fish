@@ -12,5 +12,9 @@ function log
             __log_info "[INFO]" $argv[2..]
         case s success
             __log_success "[SUCCESS]" $argv[2..]
+        case t trace
+            __log_trace "[TRACE]" $argv[2..]
+        case d debug
+            __log_debug "[DEBUG]" $argv[2..]
     end
 end
