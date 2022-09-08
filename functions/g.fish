@@ -104,7 +104,7 @@ function g --wraps git
         case res
             CMD reset --soft $argv[2..]
         case restage
-            cmd restore --staged $argv[2..]
+            CMD restore --staged $argv[2..]
         case red
             CMD reset --hard $argv[2..]
         case rr
