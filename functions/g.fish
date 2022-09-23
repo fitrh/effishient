@@ -88,7 +88,11 @@ function g --wraps git
         case pl
             __g_pull $argv[2..]
         case pls
-            CMD pull --rebase --depth 1 $argv[2..]
+            if test -z "$argv[2]"
+                CMD pull --rebase --depth 1
+                return
+            end
+            CMD pull --rebase --depth $argv[2..]
         case ps
             CMD push $argv[2..]
         case psf
