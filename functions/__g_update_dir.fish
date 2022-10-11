@@ -31,23 +31,23 @@ function __g_update_dir
 
                 if not git pull --ff-only --rebase=false --quiet
                     if not contains -- no-log $argv
-                        printf "%s: Problematic git directory.\n" \
+                        printf "%s: Problematic git directory\n" \
                             "$dir" >>$git_log
                     end
-                    printf "$RED$BOLD%s : Problematic git directory." $dir
+                    printf "$RED$BOLD%s: Problematic git directory" $dir
                     printf "$NORM\n"
                 end
 
                 set -l new_rev (git rev-parse --short HEAD)
 
                 if test $rev != $new_rev
-                    printf "$GREEN$BOLD%s: Updated.$NORM\n" $dir
+                    printf "$GREEN$BOLD%s: Updated$NORM (%s..%s)\n" $dir $rev $new_rev
                     if not contains -- no-log $argv
                         printf "%s..%s: %s updated at %s\n" \
                             $rev $new_rev $dir (date +'%H:%M:%S%s%Z') >>$git_log
                     end
                 else
-                    printf "$BLUE$BOLD%s : Already up to date.$NORM\n" $dir
+                    printf "$BLUE$BOLD%s: Already up to date$NORM\n" $dir
                 end
             end
             cd ..
