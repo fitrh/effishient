@@ -48,7 +48,7 @@ function g --wraps git
             CMD checkout $argv[2..]
         case cm
             if test -z "$argv[2]"
-                CMD commit -S
+                CMD commit -S --verbose
             else
                 CMD commit -S -m $argv[2..]
             end
