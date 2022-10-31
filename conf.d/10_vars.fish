@@ -15,6 +15,9 @@ set -x XDG_VIDEOS_DIR (xdg-user-dir VIDEOS)
 set -x PKG_CONFIG_PATH /usr/local/share/pkgconfig
 set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH $XDG_DATA_HOME/pkgconfig
 
+set -x LD_LIBRARY_PATH /usr/local/lib
+set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
+
 set -x LOCAL_BIN $HOME/.local/bin
 set -x LOCAL_LIB $HOME/.local/lib
 set -x LOCAL_SCRIPT $HOME/.local/script
