@@ -19,7 +19,7 @@ function pp --wraps pip
         case f freeze
             $CMD freeze $argv[2..]
         case i install
-            $CMD install -U pip
+            $CMD install -U pip setuptools
             $CMD install -U $argv[2..]
             $CMD freeze >~/.cache/pyenv/freeze_(date +'%Y%m%d_%H%M%S').log
         case l list
@@ -27,7 +27,7 @@ function pp --wraps pip
         case o outdate
             $CMD list -o --format=freeze $argv[2..]
         case pip
-            $CMD install --upgrade pip $argv[2..]
+            $CMD install --upgrade pip setuptools $argv[2..]
         case s show
             $CMD show -v $argv[2..]
         case u uninstall
