@@ -5,7 +5,7 @@ function c --wraps cd
     end
 
     if not test -d $_DIR
-        printf "Directory \e[1;31;40m $_DIR \e[0m doesn't exist\n"
+        log e "\e[1;31;40m $_DIR \e[0m doesn't exist as directory"
         return 1
     end
 
