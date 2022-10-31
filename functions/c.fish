@@ -13,7 +13,7 @@ function c --wraps cd
     clear
     if command -q exa
         exa -l --icons --group-directories-first -h
-    else
-        command ls --color --group-directories-first -hp
+        return 0
     end
+    command ls --color --group-directories-first -hp
 end
