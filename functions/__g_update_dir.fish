@@ -11,15 +11,18 @@ function __g_update_dir
     set -l BOLD "\e[1m"
     set -l cwd $PWD
     set -l git_dir $HOME/git
+    set -l write_log true
     set -l git_log $git_dir/(date -I)-git-status.log
 
     if test -n "$argv"
         if test (contains "." $argv) -o (contains this $argv)
             set git_dir $PWD
-            if ! __nolog $argv
-                set git_log $PWD/(date -I)-git.log
-            end
+            set git_log $PWD/(date -I)-git.log
         end
+    end
+
+    if contains -- nolog $argv; or contains -- no-log $argv
+        set write_log false
     end
 
     for dir in $git_dir/*/
@@ -30,7 +33,7 @@ function __g_update_dir
                 set -l rev (git rev-parse --short HEAD)
 
                 if not git pull --ff-only --rebase=false --quiet
-                    if ! __nolog $argv
+                    if $write_log
                         printf "%s: Problematic git directory\n" \
                             "$dir" >>$git_log
                     end
@@ -42,7 +45,7 @@ function __g_update_dir
 
                 if test $rev != $new_rev
                     printf "$GREEN$BOLD%s: Updated$NORM (%s...%s)\n" $dir $rev $new_rev
-                    if ! __nolog $argv
+                    if $write_log
                         printf "%s...%s: %s updated at %s\n" \
                             $rev $new_rev $dir (date +'%H:%M:%S%s%Z') >>$git_log
                     end
@@ -55,13 +58,9 @@ function __g_update_dir
     end
 
     cd $cwd
-    if ! __nolog $argv
+    if $write_log
         if test -e $git_log
             printf "Log saved into \e[1;96m%s\e[0m\n" $git_log
         end
     end
-end
-
-function __nolog
-    return (contains -- nolog $argv; or contains -- no-log $argv)
 end
