@@ -26,35 +26,39 @@ function __g_update_dir
     end
 
     for dir in $git_dir/*/
-        if test -d $dir
-            cd $dir
-            if test (git rev-parse --is-inside-work-tree)
-                set -l dir (basename $dir)
-                set -l rev (git rev-parse --short HEAD)
-
-                if not git pull --ff-only --rebase=false --quiet
-                    if $write_log
-                        printf "%s: Problematic git directory\n" \
-                            "$dir" >>$git_log
-                    end
-                    printf "$RED$BOLD%s: Problematic git directory" $dir
-                    printf "$NORM\n"
-                end
-
-                set -l new_rev (git rev-parse --short HEAD)
-
-                if test $rev != $new_rev
-                    printf "$GREEN$BOLD%s: Updated$NORM (%s...%s)\n" $dir $rev $new_rev
-                    if $write_log
-                        printf "%s...%s: %s updated at %s\n" \
-                            $rev $new_rev $dir (date +'%H:%M:%S%s%Z') >>$git_log
-                    end
-                else
-                    printf "$BLUE$BOLD%s: Already up to date$NORM\n" $dir
-                end
-            end
-            cd ..
+        if test ! -d $dir
+            continue
         end
+
+        cd $dir
+        if test ! (git rev-parse --is-inside-work-tree)
+            cd ..
+            continue
+        end
+
+        set -l dir (basename $dir)
+        set -l rev (git rev-parse --short HEAD)
+
+        if not git pull --ff-only --rebase=false --quiet
+            if $write_log
+                printf "%s: Problematic git directory\n" \
+                    "$dir" >>$git_log
+            end
+            printf "$RED$BOLD%s: Problematic git directory" $dir
+            printf "$NORM\n"
+        end
+
+        set -l new_rev (git rev-parse --short HEAD)
+        if test $rev != $new_rev
+            printf "$GREEN$BOLD%s: Updated$NORM (%s...%s)\n" $dir $rev $new_rev
+            if $write_log
+                printf "%s...%s: %s updated at %s\n" \
+                    $rev $new_rev $dir (date +'%H:%M:%S%s%Z') >>$git_log
+            end
+        else
+            printf "$BLUE$BOLD%s: Already up to date$NORM\n" $dir
+        end
+        cd ..
     end
 
     cd $cwd
