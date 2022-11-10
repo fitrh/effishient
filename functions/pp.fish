@@ -15,11 +15,12 @@ function pp --wraps pip
 
     switch $argv[1]
         case dev
+            __pp_base
             $CMD install -U black flake8 isort mypy pylint pytest
         case f freeze
             $CMD freeze $argv[2..]
         case i install
-            $CMD install -U pip setuptools
+            __pp_base
             $CMD install -U $argv[2..]
             $CMD freeze >~/.cache/pyenv/freeze_(date +'%Y%m%d_%H%M%S').log
         case l list
@@ -27,7 +28,7 @@ function pp --wraps pip
         case o outdate
             $CMD list -o --format=freeze $argv[2..]
         case pip
-            $CMD install --upgrade pip setuptools $argv[2..]
+            __pp_base
         case s show
             $CMD show -v $argv[2..]
         case u uninstall

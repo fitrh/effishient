@@ -1,5 +1,6 @@
 function __pp_upgrade
     set -l CACHE "$HOME/.cache/pyenv"
+    __pp_base
     if python -m pip list -o --format=json | jq -r .[].name >outdate.txt
         if python -m pip install -Ur outdate.txt
             if rm -rf outdate.txt
@@ -10,4 +11,3 @@ function __pp_upgrade
         end
     end
 end
-
