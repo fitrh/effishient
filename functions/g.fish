@@ -76,7 +76,7 @@ function g --wraps git
             CMD log --oneline (__g_log_parse_rev $argv[2..])
         case lop
             CMD log \
-                --pretty="format:%C(bold yellow)%h %Creset%C(dim magenta)(%cd)%Creset %C(brightwhite)%<(70,trunc)%s%Creset %C(brightblack)ﰖ %C(blue)%<(15,trunc)%aN %C(brightblack)%<(15,trunc)%cr %C(bold red)%>(15,trunc)%D" \
+                --pretty="format:%C(yellow)%h%Creset %C(brightwhite)%<(72,trunc)%s%Creset %C(brightblack)ﰖ %C(blue)%<(15,trunc)%aN %C(brightblack)%<(14,trunc)%cr %C(dim magenta)%cd%Creset %C(bold red)%<(15,trunc)%D" \
                 --date="format:%Y/%m/%d %H:%M" \
                 (__g_log_parse_rev $argv[2..])
         case ls
