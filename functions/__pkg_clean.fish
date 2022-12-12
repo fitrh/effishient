@@ -1,6 +1,6 @@
 function __pkg_clean
     if test -z "$argv"
-        sudo paccache -rk1 -ruk0
+        sudo paccache -rk1 -ruk0 -v
     end
 
     if contains -- --agr $argv
