@@ -39,7 +39,7 @@ function conf
                 cd $dir
             end
         else
-            printf 'No config available for %s\n' $arg
+            printf 'No config available for \e[91m%s\e[0m\n' $arg
             cd $_CWD
             set --erase _CWD
             return 1
