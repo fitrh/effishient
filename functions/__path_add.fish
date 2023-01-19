@@ -4,6 +4,10 @@ function __path_add
         return 1
     end
 
+    if test $argv = '.'
+        set argv "$PWD"
+    end
+
     if not test -e $argv
         printf "\e[1;31m$argv\e[0m does not exist\n"
         return 1
