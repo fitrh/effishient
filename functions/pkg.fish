@@ -21,6 +21,8 @@ function pkg --wraps pacman
             __pkg_info $argv[2..]
         case c clean
             __pkg_clean $argv[2..]
+        case cache
+            __pkg_cache $argv[2..]
         case r remove
             __pkg_remove $argv[2..]
         case q query
