@@ -45,7 +45,7 @@ function g --wraps git
         case cd
             CMD clone --depth $argv[2..]
         case cf
-            CMD clone --filter=blob:none depth $argv[2..]
+            CMD clone --filter=blob:none $argv[2..]
         case ch
             CMD checkout $argv[2..]
         case cm
