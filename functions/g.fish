@@ -99,6 +99,8 @@ function g --wraps git
             CMD push $argv[2..]
         case psf
             CMD push --force-with-lease $argv[2..]
+        case psu
+            CMD push --set-upstream $argv[2..]
         case ra
             CMD remote add $argv[2..]
         case rb
