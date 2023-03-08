@@ -77,10 +77,17 @@ function g --wraps git
         case lo
             CMD log --oneline (__g_log_parse_rev $argv[2..])
         case lop
-            CMD log \
-                --pretty="format:%C(yellow)%h%Creset %C(brightwhite)%<(72,trunc)%s%Creset %C(brightblack)ﰖ %C(blue)%<(15,trunc)%aN %C(brightblack)%<(14,trunc)%cr %C(dim magenta)%cd%Creset %C(bold red)%<(15,trunc)%D" \
-                --date="format:%Y/%m/%d %H:%M" \
-                (__g_log_parse_rev $argv[2..])
+            set FMT "format:%C(yellow)%h%Creset"
+            set FMT $FMT "%C(brightwhite)%<(72,trunc)%s%Creset"
+            set FMT $FMT "%C(brightblack)ﰖ"
+            set FMT $FMT "%C(blue)%<(15,trunc)%aN"
+            set FMT $FMT "%C(brightblack)%<(14,trunc)%cr"
+            set FMT $FMT "%C(dim magenta)%cd%Creset"
+            set FMT $FMT "%C(bold red)%<(15,trunc)%D"
+
+            set REV (__g_log_parse_rev $argv[2..])
+
+            CMD log --pretty="$FMT" --date="format:%Y/%m/%d %H:%M" $REV
         case ls
             CMD log -S $argv[2..]
         case m
