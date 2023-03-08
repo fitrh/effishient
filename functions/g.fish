@@ -149,8 +149,6 @@ function g --wraps git
             CMD stash list $argv[2..]
         case stashow
             CMD stash show $argv[2..]
-        case stasv
-            CMD statsh save $argv[2..]
         case sub
             CMD submodule $argv[2..]
         case sum
