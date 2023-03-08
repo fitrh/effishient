@@ -34,6 +34,7 @@ set -x CHROME_EXECUTABLE (which chromium)
 set -x COMPOSER_BIN_DIR $LOCAL_LIB/php/composer/bin
 set -x DART_SDK $LOCAL_LIB/dart
 set -x DESKTOP_BG "Earth & The Satellite.png"
+set -x DELTA_FEATURES '+line-numbers'
 set -x DENO_INSTALL $LOCAL_LIB/deno
 set -x DENO_INSTALL_ROOT $DENO_INSTALL/bin
 set -x DIRENV_LOG_FORMAT ""
@@ -66,6 +67,7 @@ set -x RUST_BACKTRACE 1
 set -x VIMPKG $XDG_DATA_HOME/nvim/site/pack
 set -x VISUAL $EDITOR
 set -x XCURSOR_THEME capitaine-cursors
+set -x XCURSOR_SIZE 24
 set -x XMONAD_DATA_DIR $XDG_DATA_HOME/xmonad
 set -x XMONAD_CONFIG_DIR $XDG_CONFIG_HOME/xmonad
 set -x XMONAD_CACHE_DIR $XDG_CACHE_HOME/xmonad
