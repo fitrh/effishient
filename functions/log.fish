@@ -5,7 +5,7 @@ function log
     end
 
     switch $argv[1]
-        case e error
+        case e err error
             __log_show 91 "[ERROR]" $argv[2..]
         case w warn
             __log_show 93 "[WARN]" $argv[2..]
