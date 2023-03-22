@@ -26,6 +26,8 @@ function g --wraps git
         return
     end
 
+    set -l DATE_FM "format:%Y/%m/%d %H:%M"
+
     switch $argv[1]
         case a add
             CMD add $argv[2..]
@@ -87,7 +89,29 @@ function g --wraps git
 
             set REV (__g_log_parse_rev $argv[2..])
 
-            CMD log --pretty="$FMT" --date="format:%Y/%m/%d %H:%M" $REV
+            CMD log --pretty="$FMT" --date=$DATE_FMT $REV
+        case loa
+            set hash "%C(yellow)%h%Creset"
+            set subject "%C(brightwhite)%s%Creset"
+            set author "%C(blue)%aN%Creset"
+            set FMT "format:$hash $subject $author"
+
+            CMD log --oneline --pretty="$FMT" (__g_log_parse_rev $argv[2..])
+        case loat
+            set FMT "format:%C(yellow)%h%Creset"
+            set FMT $FMT "%C(brightwhite)%s%Creset"
+            set FMT $FMT "%C(blue)%aN%Creset"
+            set FMT $FMT "%C(white)%cr, %cd%Creset"
+            set REV (__g_log_parse_rev $argv[2..])
+
+            CMD log --oneline --pretty="$FMT" --date=$DATE_FMT $REV
+        case lot
+            set FMT "format:%C(yellow)%h%Creset"
+            set FMT $FMT "%C(brightwhite)%s%Creset"
+            set FMT $FMT "%C(white)%cr, %cd%Creset"
+            set REV (__g_log_parse_rev $argv[2..])
+
+            CMD log --oneline --pretty="$FMT" --date=$DATE_FMT $REV
         case ls
             CMD log -S $argv[2..]
         case m
