@@ -62,6 +62,8 @@ function g --wraps git
             CMD diff $argv[2..]
         case dc
             CMD diff --cached $argv[2..]
+        case ds
+            CMD diff --shortstat $argv[2..]
         case f
             CMD fetch $argv[2..]
         case hash
