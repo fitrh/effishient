@@ -1,2 +1,7 @@
 function fish_title
+    set dir (string shorten -m 40 -l (prompt_pwd -d 1 -D 3))
+    if test "$dir" != "~"
+        printf "%s · " $dir
+    end
+    printf "%s" $TERM
 end
