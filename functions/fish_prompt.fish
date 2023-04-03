@@ -4,7 +4,7 @@ function fish_prompt --description 'Write out the prompt'
 
     # Color the prompt differently when we're root
     set -l suffix (set_color white) '%'
-    if contains -- $USER root toor
+    if fish_is_root_user
         set suffix (set_color red) '#'
     end
 
