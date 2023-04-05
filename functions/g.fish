@@ -177,6 +177,11 @@ function g --wraps git
             CMD stash list $argv[2..]
         case stashow
             CMD stash show $argv[2..]
+        case stau # thank you git reset --hard HEAD~1, have a nice day
+            git fsck --unreachable |
+                grep commit |
+                cut -d\  -f3 |
+                xargs git log --merges --no-walk --grep=WIP
         case sub
             CMD submodule $argv[2..]
         case sum
