@@ -153,6 +153,8 @@ function g --wraps git
             CMD remote set-url $argv[2..]
         case rv
             CMD remote -v $argv[2..]
+        case show
+            CMD show -p --stat $argv[2..]
         case ss
             CMD status --short $argv[2..]
         case ssu
