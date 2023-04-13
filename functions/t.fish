@@ -10,6 +10,7 @@ function t --wraps=exa
 
     if command -q tree
         tree -CF --dirsfirst $argv
+        return
     end
 
     log e "exa or tree command not found"
