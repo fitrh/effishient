@@ -9,7 +9,7 @@ function t --wraps=exa
     end
 
     if command -q tree
-        tree -CF --dirsfirst $argv
+        tree -h -F --du --dirsfirst -C $argv
         return
     end
 
