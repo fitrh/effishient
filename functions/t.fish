@@ -13,6 +13,6 @@ function t --wraps=exa
         return
     end
 
-    log e "exa or tree command not found"
+    log e "\e[1;32mexa\e[0m or \e[1;32mtree\e[0m command not found"
     return 1
 end
