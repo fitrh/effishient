@@ -2,6 +2,7 @@ function mirr
     set -g __COUNTRY Indonesia
     set -g __INSTANCE 5
     set -g __MIRRORS "/etc/pacman.d/mirrorlist"
+    set -g MIRR_TIMEOUT 60
 
     if test -z "$argv"
         __mirr_help
