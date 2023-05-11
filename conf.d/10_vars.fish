@@ -12,8 +12,11 @@ set -x XDG_PUBLICSHARE_DIR (xdg-user-dir PUBLICSHARE)
 set -x XDG_TEMPLATES_DIR (xdg-user-dir TEMPLATES)
 set -x XDG_VIDEOS_DIR (xdg-user-dir VIDEOS)
 
-set -x PKG_CONFIG_PATH /usr/local/share/pkgconfig
-set -x PKG_CONFIG_PATH $PKG_CONFIG_PATH $XDG_DATA_HOME/pkgconfig
+set -x PKG_CONFIG_PATH /usr/lib/pkgconfig
+set PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/share/pkgconfig
+set PKG_CONFIG_PATH $PKG_CONFIG_PATH /usr/local/share/pkgconfig
+set PKG_CONFIG_PATH $PKG_CONFIG_PATH $XDG_DATA_HOME/pkgconfig
+set PKG_CONFIG_PATH $PKG_CONFIG_PATH $HOME/.local/lib/pkgconfig
 
 set -x LD_LIBRARY_PATH /usr/local/lib
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH $HOME/.local/lib
