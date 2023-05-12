@@ -59,7 +59,7 @@ function g --wraps git
         case conf
             CMD config $argv[2..]
         case d
-            CMD diff $argv[2..]
+            CMD diff --stat -p $argv[2..]
         case dc
             CMD diff --cached --stat -p $argv[2..]
         case ds
