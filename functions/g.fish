@@ -62,6 +62,8 @@ function g --wraps git
             CMD diff --stat -p $argv[2..]
         case dc
             CMD diff --cached --stat -p $argv[2..]
+        case dcs
+            CMD diff --cached --stat $argv[2..]
         case ds
             CMD diff --shortstat $argv[2..]
         case f
