@@ -127,6 +127,8 @@ function g --wraps git
             CMD pull --rebase --depth $argv[2..]
         case ps
             CMD push $argv[2..]
+        case psd
+            CMD push --delete $argv[2..]
         case psf
             CMD push --force-with-lease $argv[2..]
         case psu
