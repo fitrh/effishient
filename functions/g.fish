@@ -65,6 +65,8 @@ function g --wraps git
         case dcs
             CMD diff --cached --stat $argv[2..]
         case ds
+            CMD diff --stat $argv[2..]
+        case dss
             CMD diff --shortstat $argv[2..]
         case f
             CMD fetch $argv[2..]
