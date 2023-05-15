@@ -1,3 +1,7 @@
+if not status is-login
+    return
+end
+
 set -x LF_ICONS "\
 tw=:\
 st=:\

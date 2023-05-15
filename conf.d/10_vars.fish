@@ -1,3 +1,7 @@
+if not status is-login
+    return
+end
+
 set -x XDG_DATA_DIRS "/usr/local/share:/usr/share:$HOME/.local/share"
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CONFIG_HOME $HOME/.config

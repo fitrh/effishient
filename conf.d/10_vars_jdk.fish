@@ -1,3 +1,7 @@
+if not status is-login
+    return
+end
+
 set -l OPTIONS "-Dawt.useSystemAAFontSettings=gasp" \
     "-Dswing.aatext=true" \
     "-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" \
