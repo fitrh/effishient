@@ -3,5 +3,11 @@ function fish_title
     if test "$dir" != "~"
         printf "%s · " $dir
     end
+
     printf "%s" $TERM
+
+    set -l cmd (status current-command)
+    if test "$cmd" != '' -a "$cmd" != fish
+        printf ": %s" $cmd
+    end
 end
