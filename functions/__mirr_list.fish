@@ -1,7 +1,7 @@
 function __mirr_list
     if test -z "$argv"
         reflector --download-timeout $MIRR_TIMEOUT \
-            -l $__INSTANCE -f $__INSTANCE \
+            -l $MIRR_INSTANCE -f $MIRR_INSTANCE \
             --protocol http,https \
             --sort rate --verbose
         return
@@ -9,7 +9,7 @@ function __mirr_list
 
     __mirr_parse_args $argv
     reflector --download-timeout $MIRR_TIMEOUT \
-        -c $__COUNTRY -l $__INSTANCE -f $__INSTANCE \
+        -c $MIRR_COUNTRY -l $MIRR_INSTANCE -f $MIRR_INSTANCE \
         --sort rate --verbose \
         --protocol http,https
 end

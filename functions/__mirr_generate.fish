@@ -1,15 +1,15 @@
 function __mirr_generate
     if test -z "$argv"
         sudo reflector --download-timeout $MIRR_TIMEOUT \
-            -l $__INSTANCE -f $__INSTANCE \
+            -l $MIRR_INSTANCE -f $MIRR_INSTANCE \
             --protocol https,http \
-            --sort rate --verbose --save $__MIRRORS
+            --sort rate --verbose --save $MIRR_MIRRORS
         return
     end
 
     __mirr_parse_args $argv
     sudo reflector --download-timeout $MIRR_TIMEOUT \
-        -c $__COUNTRY -l $__INSTANCE -f $__INSTANCE \
+        -c $MIRR_COUNTRY -l $MIRR_INSTANCE -f $MIRR_INSTANCE \
         --protocol http,https \
-        --sort rate --verbose --save $__MIRRORS
+        --sort rate --verbose --save $MIRR_MIRRORS
 end

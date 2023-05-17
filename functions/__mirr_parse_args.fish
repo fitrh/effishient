@@ -4,9 +4,9 @@ function __mirr_parse_args
         set -l value (printf $arg | cut -d '=' -f 2)
         switch $key
             case country
-                set -g __COUNTRY $value
+                set -g MIRR_COUNTRY $value
             case instance
-                set -g __INSTANCE $value
+                set -g MIRR_INSTANCE $value
         end
     end
 end
