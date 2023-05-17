@@ -8,8 +8,6 @@ function __mirr_generate
     end
 
     __mirr_parse_args $argv
-    echo $__COUNTRY
-    return
     sudo reflector --download-timeout $MIRR_TIMEOUT \
         -c $__COUNTRY -l $__INSTANCE -f $__INSTANCE \
         --protocol http,https \
