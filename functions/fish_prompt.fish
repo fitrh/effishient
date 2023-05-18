@@ -13,7 +13,7 @@ function fish_prompt --description 'Write out the prompt'
         set suffix (set_color $color_status) '✗' # Change the prompt suffix on exit error
     end
 
-    set dir (string shorten -m 40 -l (prompt_pwd -d 1 -D 3))
+    set dir (string shorten -m 50 -l (prompt_pwd -d 1 -D 3))
     if test "$dir" != '~' # Show working dir if not `$HOME`
         set dir (string split '/' $dir)
         printf '%s%s/' (set_color white) (string join '/' $dir[1..-2])
