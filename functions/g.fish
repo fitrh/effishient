@@ -201,6 +201,10 @@ function g --wraps git
         case sw
             CMD switch $argv[2..]
         case '*'
+            if test -d ~/git/$argv[1]
+                cd ~/git/$argv[1]
+                return
+            end
             CMD $argv
     end
 end
