@@ -5,8 +5,6 @@ end
 set USER_PATH $USER_PATH ~/.local/bin
 set USER_PATH $USER_PATH ~/.local/lib/rust/cargo/bin
 set USER_PATH $USER_PATH ~/.local/lib/go/bin
-set USER_PATH $USER_PATH ~/.local/lib/dart/pub-cache/bin
-set USER_PATH $USER_PATH ~/.local/lib/dart/bin
 set USER_PATH $USER_PATH ~/.local/lib/jvm/default/bin
 set USER_PATH $USER_PATH ~/.local/lib/kotlin/compiler/bin
 set USER_PATH $USER_PATH ~/.local/lib/kotlin/server/bin
@@ -25,6 +23,8 @@ set USER_PATH $USER_PATH ~/.local/lib/sdk/android/tools/bin
 set USER_PATH $USER_PATH ~/.local/lib/sdk/android/platform-tools
 set USER_PATH $USER_PATH ~/.local/lib/sdk/android/ndk/21.0.6113669
 set USER_PATH $USER_PATH ~/.local/lib/sdk/flutter/bin
+set USER_PATH $USER_PATH ~/.local/lib/dart/pub-cache/bin
+set USER_PATH $USER_PATH ~/.local/lib/dart/bin
 set USER_PATH $USER_PATH ~/.luarocks/bin
 set USER_PATH $USER_PATH ~/.dotnet/tools
 set USER_PATH $USER_PATH ~/git/prettierd/bin
