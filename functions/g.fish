@@ -119,6 +119,8 @@ function g --wraps git
             CMD add --patch $argv[2..]
         case pl
             __g_pull $argv[2..]
+        case plr
+            CMD pull --rebase $argv[2..]
         case pls
             if test -z "$argv[2]"
                 CMD pull --rebase --depth 1
