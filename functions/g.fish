@@ -110,6 +110,8 @@ function g --wraps git
                 case lot
                     set FMT "format:$hash $subject $time"
                     CMD log --oneline --pretty="$FMT" --date=$DATE_FMT $REV
+                case '*'
+                    CMD $argv
             end
         case ls
             CMD log -S $argv[2..]
