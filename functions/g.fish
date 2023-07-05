@@ -206,7 +206,7 @@ function g --wraps git
             CMD switch $argv[2..]
         case '*'
             if test -d ~/git/$argv[1]
-                cd ~/git/$argv[1]
+                clear && cd ~/git/$argv[1]
                 return
             end
             CMD $argv
