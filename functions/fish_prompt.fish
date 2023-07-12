@@ -16,7 +16,14 @@ function fish_prompt --description 'Write out the prompt'
     set dir (string shorten -m 50 -l (prompt_pwd -d 1 -D 3))
     if test "$dir" != '~' # Show working dir if not `$HOME`
         set dir (string split '/' $dir)
-        printf '%s%s/' (set_color white) (string join '/' $dir[1..-2])
+        if test $dir[1] = '~'
+            set dir $dir[2..]
+        end
+
+        if test (count $dir) -gt 1
+            printf '%s%s/' (set_color white) (string join '/' $dir[1..-2])
+        end
+
         printf '%s%s%s\n' (set_color blue --bold) $dir[-1] (set_color normal)
     end
     echo -n -s -e $code $suffix ' '
