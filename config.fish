@@ -1,3 +1,5 @@
+set -g fish_greeting # Disable greeting
+
 if not status is-interactive
     return
 end
