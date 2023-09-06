@@ -1,8 +1,12 @@
 function conf
     set -l _CWD (pwd)
+    set config_dir $XDG_CONFIG_HOME
+    if test -z "$config_dir"
+        set config_dir $HOME/.config
+    end
 
     if test -z "$argv"
-        cd $XDG_CONFIG_HOME; or cd $HOME/.config
+        cd $config_dir
         clear
         if command -q exa
             exa --only-dirs --icons
@@ -13,7 +17,6 @@ function conf
         return
     end
 
-    set -l dir $HOME/.config
     set -l edit
     for e in $EDITOR vim vi
         if command -q $e
@@ -30,6 +33,7 @@ function conf
     set -l open_editor $edit -c ":Telescope find_files"
     set -l config
 
+    set -l dir $config_dir
     for arg in $argv
         set arg $dir/$arg
         if test -e $arg
