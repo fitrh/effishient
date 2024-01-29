@@ -1,4 +1,12 @@
-function tre --wraps=exa
+function tre --wraps=eza
+    if command -q eza
+        command eza --icons --color-scale all \
+            --tree \
+            --group-directories-first \
+            $argv
+        return
+    end
+
     if command -q exa
         exa --icons --color-scale \
             --tree \

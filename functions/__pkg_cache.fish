@@ -8,6 +8,10 @@ function __pkg_cache
         case du
             du -ah --max-depth 1 | sort -hr | less
         case ls
+            if command -sq eza
+                eza -l --no-permissions --no-user --sort oldest *.tar.zst | less
+                return 0
+            end
             if command -sq exa
                 exa -l --no-permissions --no-user --sort oldest *.tar.zst | less
                 return 0

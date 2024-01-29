@@ -8,7 +8,9 @@ function conf
     if test -z "$argv"
         cd $config_dir
         clear
-        if command -q exa
+        if command -q eza
+            eza --only-dirs --icons
+        else if command -q exa
             exa --only-dirs --icons
         else
             command ls --color --group-directories-first -hp

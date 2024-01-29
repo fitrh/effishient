@@ -11,9 +11,16 @@ function c --wraps cd
 
     cd $_DIR
     clear
+
+    if command -q eza
+        eza -l -h --icons --group-directories-first
+        return 0
+    end
+
     if command -q exa
         exa -l --icons --group-directories-first -h
         return 0
     end
+
     command ls --color --group-directories-first -hp
 end
