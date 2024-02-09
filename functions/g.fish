@@ -100,7 +100,7 @@ function g --wraps git
                     set FMT "format:$hash $subject $author $time"
                     CMD log --oneline --pretty="$FMT" --date=$DATE_FMT $REV
                 case lop
-                    set FMT "format:%C(yellow)%h%Creset"
+                    set FMT "format:$hash"
                     set FMT $FMT "%C(brightwhite)%<(72,trunc)%s %C(white)[%G?]%Creset"
                     set FMT $FMT "%C(brightblack)ﰖ"
                     set FMT $FMT "%C(blue)%<(15,trunc)%aN"
