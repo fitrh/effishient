@@ -18,6 +18,8 @@ function fl --wraps flutter
             flutter packages upgrade -b $argv[-2..]
         case upgrade
             flutter upgrade -v $argv[2..]
+        case ver version
+            flutter --version $argv[2..]
         case '*'
             flutter $argv
     end
