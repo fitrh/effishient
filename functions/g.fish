@@ -85,7 +85,7 @@ function g --wraps git
         case lo
             CMD log --oneline (__g_log_parse_rev $argv[2..])
         case "lo*"
-            set DATE_FMT "format:%Y/%m/%d %H:%M"
+            set DATE_FMT iso
             set REV (__g_log_parse_rev $argv[2..])
             set hash "%C(yellow)%h%Creset"
             set subject "%C(brightwhite)%s%Creset"
